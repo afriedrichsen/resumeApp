@@ -1,0 +1,47 @@
+{
+  "name": "resumeapp.friedunix.net",
+  "version": "0.0.0",
+  "description": "Resume for Alex Friedrichsen written primarily in NodeJS",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "coffee-script": "^1.x",
+    "express": "^4.15.4",
+    "http": "0.0.0",
+    "jade": "^0.35.x",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.4.4",
+    "serve-static": "^1.12.4",
+    "which": "^1.x"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "test": "mocha --require should --compilers coffee:coffee-script --colors",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afriedrichsen/resumeApp.git"
+  },
+  "keywords": [
+    "Node",
+    "resume"
+  ],
+  "author": "Alexander (Alex)",
+  "license": "ISC",
+  "homepage": "https://github.com/afriedrichsen/resumeAppDev.friedunix.net#readme",
+  "bugs": {
+    "url": "https://github.com/afriedrichsen/resumeApp/issues"
+  }
+}
