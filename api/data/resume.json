@@ -16,7 +16,7 @@
         , "place": "Minneapolis/Richfield, MN"
         , "subtitle": "Information Security Specialist"
         , "date": "October 2013–Present"
-        , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting daashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Contributed to product and security development of the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
+        , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting dashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Contributed to product and security development of the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
         }
       , "teksystems": {
           "id": "teksystems"
@@ -121,7 +121,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "Application Development Advisor"
         , "date": "Spring 2017&#8211;Present"
-        , "desc": "<ul> <li>IAM Connect is virtual team of developers/engineers working in both security and other development groups throughout the Bank.</li> <li>Worked as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assisted as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
+        , "desc": "<ul> <li>IAM Connect is a virtual team of developers, engineers and analysts working in both security and other development groups throughout the Bank.</li> <li>Worked as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assisted as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
         }
       }
     }
