@@ -29,8 +29,8 @@
   },
   "scripts": {
     "test": "mocha --require should --compilers coffee:coffee-script --colors",
-    "start_development": "nodemon app.js"
-    "start_production": "pm2 start app.js"
+    "development": "nodemon app.js",
+    "production": "pm2 start app.js"
   },
   "repository": {
     "type": "git",
