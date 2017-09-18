@@ -100,7 +100,7 @@
       , "node": {"title": "Node.js", "level": "65"}
       , "latex": {"title": "LaTeX", "level": "95"}
       , "mongodb": {"title": "MongoDB", "level": "70"}
-      , "vbscript": {"title": "vbscript", "level": "75"}
+      , "vbscript": {"title": "VB.Net", "level": "75"}
       , "iam": {"title": "Identity and Access Management", "level": "85"}
       , "html": {"title": "HTML", "level": "90"}
       , "java": {"title": "Java", "level": "50"}
