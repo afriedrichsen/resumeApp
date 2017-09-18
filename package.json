@@ -13,6 +13,7 @@
     "coffee-script": "^1.x",
     "express": "^4.15.4",
     "http": "0.0.0",
+    "https": "^1.0.0",
     "jade": "^0.35.x",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.11",
