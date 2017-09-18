@@ -10,25 +10,25 @@
       "id": "experience"
     , "title": "Professional Experience"
     , "items": {
-        "crowsdurf.io": {
-          "id": "crowdsurf.io"
+        "usbank": {
+          "id": "usbank"
         , "title": "US Bancorp Inc"
         , "place": "Minneapolis/Richfield, MN"
         , "subtitle": "Information Security Specialist"
         , "date": "October 2013–Present"
         , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting daashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Contributed to product and security development of the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
         }
-      , "reu": {
-          "id": "reu"
+      , "teksystems": {
+          "id": "teksystems"
         , "title": "<a href='http://www.teksystems.com' target='_blank'>TekSystems</a>"
-        , "website": "http://math.iit.edu/~openscholar/meshfree/event/reu-iit"
+        , "website": "http://www.teksystems.com"
         , "place": "Richfield, MN"
         , "subtitle": "IT Contractor"
         , "date": "July-October 2013"
         , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Contributed to a code repository of numerical experiments in Matlab</li><li>Conducted theoretical investigations of closed forms for Green&#8217s functions associated with the 2-parameter family</li><li>Presented results at:<ul><li>The <a href='http://jointmathematicsmeetings.org/' target='_blank'>Joint Mathematics Meetings 2013 </a> in San Diego, CA </li><li>The <a href='http://www.ymc.osu.edu/' target='_blank'>Young Mathematicians Conference 2012 </a> at Ohio State University; our abstract was one of 55 accepted out of 110 submitted</li><li>Brown's 2013 Symposium for Undergraduates in the Mathematical Sciences</li></ul><li>Research funded by NSF grant DMS-1115392</li></ul>"
         }
-      , "penobscot": {
-          "id": "penobscot"
+      , "stthomas": {
+          "id": "stthomas"
         , "title": "<a href='https://www.stthomas.edu' target='_blank'>University of St. Thomas</a>"
         , "website": "https://www.stthomas.edu"
         , "place": "St. Paul, MN"
@@ -47,9 +47,9 @@
         , "title": "<a href='http://stthomas.edu' target='_blank'>University of St. Thomas</a>"
         , "website": "http://www.stthomas.edu"
         , "place": "St. Paul, MN"
-        , "subtitle": "B.A. in Economics&#8212;Political Science"
+        , "subtitle": "B.A. in Economics&#8212;B.A. in Political Science"
         , "date": "May, 2013"
-        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Creating Modern Web Applications</li><li>Laboratory in Computational Cognitive Neuroscience</li><li>Consciousness</li><li>Artificial Intelligence</li><li>Design and Analysis of Algorithms</li><li>Combinatorial Topology</li><li>Neural Modeling Laboratory</li><li>Introduction to Neuroscience</li><li>Multiprocessor Synchronization</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Models of Computation</li><li>Fundamental Problems of Geometry</li><li>Abstract Algebra</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
+        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Econometrics and Computer Science</li><li>Mathematical Economics</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
         }
       }
     }
@@ -83,9 +83,9 @@
         }
       , "resume": {
           "id": "resume"
-        , "title": "<a href='https://github.com/wmayner/resume' target='_blank'>This Resume</a>"
-        , "website": "https://github.com/wmayner/resume"
-        , "desc": "As a way of getting familiar with the <code>Node</code> + <code>CoffeeScript</code> + <code>Express</code> + <code>Jade</code> + <code>Less</code> + <code>Bootstrap</code> stack, I built this resume page as an open-source Node app. The app renders resume content stored in a <span class='mono-font'>.JSON</span> file. Check out the <a href='https://github.com/wmayner/resume' target='_blank'>repo on github</a>."
+        , "title": "<a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>This Resume</a>"
+        , "website": "https://github.com/afriedrichsen/resumeApp"
+        , "desc": "As a way of getting familiar with the <code>Node</code> + <code>CoffeeScript</code> + <code>Express</code> + <code>Jade</code> + <code>Less</code> + <code>Bootstrap</code> stack, I built this resume page as an open-source Node app. The app renders resume content stored in a <span class='mono-font'>.JSON</span> file. Check out the <a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>repo on github</a>."
         }
       }
     }
@@ -96,12 +96,12 @@
         "python": {"title": "Python", "level": "90"}
       , "sql": {"title": "SQL", "level": "95"}
       , "spark":{"title":"Spark", "level":"75"}
-      , "scala": {"title": "ScalaJS", "level": "60"}
+      , "scala": {"title": "ScalaJS", "level": "70"}
       , "node": {"title": "Node.js", "level": "65"}
       , "latex": {"title": "LaTeX", "level": "95"}
       , "mongodb": {"title": "MongoDB", "level": "70"}
-      , "jade": {"title": "Jade", "level": "75"}
-      , "css": {"title": "Stylus", "level": "85"}
+      , "vbscript": {"title": "VB.Net", "level": "75"}
+      , "iam": {"title": "Identity and Access Management", "level": "85"}
       , "html": {"title": "HTML", "level": "90"}
       , "java": {"title": "Java", "level": "50"}
       , "unix": {"title": "Unix", "level": "90"}
@@ -121,49 +121,37 @@
       "id": "leadership"
     , "title": "Leadership Experience"
     , "items": {
-        "goclub": {
-          "id": "goclub"
-        , "title": "U.S. Bank Internship Program"
+        "usbintern": {
+          "id": "usbintern"
+        , "title": "<a href='https://www.usbank.com/internships/'>U.S. Bank Internship Program</a>"
         , "website": "http://www.college-go.org/"
         , "place": "Minneapolis, MN"
         , "subtitle": "Mentor"
         , "date": "2014&#8211;Present"
-        , "desc": "<ul><li>Helped found the Collegiate Go League, which to date has members from over 7 universities</li> <li>Go is the ancient board game of strategy and tactics, believed to be the first board game ever invented, and as yet unconquered by computer programs</li><li>Raised funds and recruited new members</li> <li>Participated in Go tournament at <abbr title='Massachusetts Institute of Technology'>MIT</abbr> in 2010 for the Brown University Go team</li> <li>Received early support from the <a href='http://www.college-go.org/ing/' target='_blank'>Ing Foundation</a>, whose mission is to promote the spread of Go in Western countries"
+        , "desc": "<ul><li>Helped kickstart the intern program, both as an intern in Summer 2012 and as an alumni mentoring new interns each year.</li> <li>Collaborated with the college recruiment group within the Bank to expand the internship program from IT-only interns to a internship covering all Bank departments.</li><li>Assisted with conducting interviews with potential intern candidates.</li><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to security, the program itself, or otherwise.."</li></ul>
         }
-      , "winona": {
-          "id": "winona"
-        , "title": "<a href='http://www.winonacamps.com/' target='_blank'>Winona Camps</a>"
-        , "website": "http://www.winonacamps.com/"
-        , "place": "Bridgton, ME"
-        , "subtitle": "Woodworking and Riflery Counselor"
-        , "date": "Summers of 2007&#8211;2011"
-        , "desc": "<ul> <li>Held a leadership role among the staff as one of the senior counselors</li> <li>Taught campers (ages 11&#8211;13) skills in woodworking (designing a project, drawing a plan, carpentry techniques) and techniques of marksmanship</li> <li>Mentored campers, encouraging their independence and helping them develop self-confidence and social skills</li> <li>Worked closely with other counselors as a team to ensure camp activities ran smoothly</li>"
+      , "usbiamconnect": {
+          "id": "usbiamconnect"
+        , "title": "U.S. Bank IAM Connect"
+        , "place": "Richfield, MN"
+        , "subtitle": "Application Development Advisor"
+        , "date": "Spring 2017&#8211;Present"
+        , "desc": "<ul> <li>IAM Connect is virtual team of developers/engineers working in both security and other development groups throughout the Bank.</li> <li>Worked as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assisted as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
         }
       }
     }
   , "activities": {
       "title": "Activities"
     , "items": {
-        "piano": {
-          "title": "Piano Studies"
-        , "date": "2003&#8211;2013"
-        , "desc": "<ul> <li>Classical instruction from 2003&#8211;2009</li> <li>Jazz instruction beginning in 2012</li> <li>Performed recitals at Senior Living Centers as community service, 2008&#8211;2009</li></ul>"
+        "volunteer": {
+          "title": "Volunteer"
+        , "desc": "<ul> <li>Twin Cities Food Justice</li> <li>Jazz instruction beginning in 2012</li> <li>Performed recitals at Senior Living Centers as community service, 2008&#8211;2009</li></ul>"
         }
-      , "harmo": {
-          "title": "Harmonic Motion"
-        , "date": "2010&#8211;2013"
-        , "subtitle": "Beatboxer and bass singer"
-        , "desc": "&#8220;Brown &#38; <abbr title='Rhode Island School of Design'>RISD</abbr>'s Hottest A Cappella Group.&#8221 Performances on campus throughout the academic year."
+      , "marathon": {
+          "title": "Running"
         }
-      , "tkd": {
-          "title": "Brown Tae-Kwon-Do"
-        , "subtitle": "Yellow Belt"
-        }
-      , "frisbee": {
-          "title": "Intramural Ultimate Frisbee"
-        }
-      , "skiing": {
-          "title": "Downhill Skiing"
+      , "beer": {
+          "title": "Beer Brewing"
         }
       }
     }
