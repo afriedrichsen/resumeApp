@@ -1,2 +1,2 @@
 # Resume Node JS Application
-# by Alexander (Alex) Friedrichsen
+by Alex Friedrichsen (afriedrichsen)
