@@ -3,6 +3,7 @@
     "github": {"iconName": "github", "url": "https://github.com/afriedrichsen"}
   , "twitter": {"iconName": "twitter", "url": "https://twitter.com/fredthemute"}
   , "linkedin": {"iconName": "linkedin", "url": "http://www.linkedin.com/afriedrichsen"}
+  , "keybase" : {"iconName": "keybase", "url": "https://keybase.io/afriedrichsen"}
   }
 , "sections": {
     "experience": {
