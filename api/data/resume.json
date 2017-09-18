@@ -81,15 +81,14 @@
       "id": "skillbars"
     , "title": "Technical Skills"
     , "items": {
-        "sql": {"title": "SQL", "level": "95"}
-      ,"python": {"title": "Python", "level": "90"}
-      , "pig": {"title": "Apache Pig", "level": "95"}
-      , "spark":{"title":"Spark", "level":"75"}
+       "sql": {"title": "SQL", "level": "95"}
+      ,"python": {"title": "Python", "level": "95"}
+      , "pig": {"title": "Apache Pig", "level": "90"}
+      , "spark":{"title":"Spark", "level":"80"}
       , "scala": {"title": "ScalaJS", "level": "70"}
       , "node": {"title": "Node.js", "level": "65"}
-      , "mongodb": {"title": "MongoDB", "level": "65"}
-      , "vbscript": {"title": "VB.Net", "level": "65"}
-      , "html": {"title": "HTML", "level": "90"}
+      , "mongodb": {"title": "MongoDB", "level": "60"}
+      , "vbscript": {"title": "VB.Net", "level": "55"}
       , "unix": {"title": "Unix", "level": "90"}
       , "windows": {"title": "Windows", "level": "90"}
       }
