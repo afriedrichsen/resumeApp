@@ -42,8 +42,8 @@
       "id"   : "education"
     , "title": "Education"
     , "items": {
-        "brown": {
-          "id": "brown"
+        "stthomas": {
+          "id": "stthomas"
         , "title": "<a href='http://stthomas.edu' target='_blank'>University of St. Thomas</a>"
         , "website": "http://www.stthomas.edu"
         , "place": "St. Paul, MN"
@@ -57,29 +57,17 @@
       "id": "projects"
     , "title": "Projects"
     , "items": {
-        "lizwikstrom.com": {
-          "id": "liz"
-        , "label": ""
-        , "title": "<a href='http://lizwikstrom.com'>lizwikstrom.com</a>"
-        , "desc": "A portfolio website for illustrator Liz Wikstrom."
-        }
-      , "simplee": {
-          "id": "simplee"
+        "spark": {
+          "id": "spark"
         , "label": "Coming soon"
-        , "title": "Simplee"
-        , "desc": "An open-source, Node.js implementation of the Simplex Tree data structure for efficient programmatic representation and manipulation of simplicial complexes."
+        , "title": "Twitter Sentiment Analysis Using Apache Flume and Spark"
+        , "desc": "An implementation of Apache Flume, Hive and Spark to use collect and analyze Twitter posts."
       }
       , "splitr": {
           "id": "splitr"
         , "label": "Coming soon"
         , "title": "Splitr.co"
         , "desc": "A web app to divide things fairly among friends"
-        }
-      , "paper": {
-          "id": "paper"
-        , "label": "Coming soon"
-        , "title": "A 2-Parameter Family of Kernels for Data Interpolation"
-        , "desc": "Coauthoring a paper with my research partner from the <abbr title='Research Experience for Undergraduates'>REU</abbr> program at <abbr title='Illinois Institute of Technology'>IIT</abbr> for submission to the <abbr title='Society for Industrial and Applied Mathematics'>SIAM</abbr> journal"
         }
       , "resume": {
           "id": "resume"
@@ -98,7 +86,7 @@
       , "spark":{"title":"Spark", "level":"75"}
       , "scala": {"title": "ScalaJS", "level": "70"}
       , "node": {"title": "Node.js", "level": "65"}
-      , "latex": {"title": "LaTeX", "level": "95"}
+      , "pig": {"title": "Apache Pig", "level": "95"}
       , "mongodb": {"title": "MongoDB", "level": "70"}
       , "vbscript": {"title": "VB.Net", "level": "75"}
       , "iam": {"title": "Identity and Access Management", "level": "85"}
@@ -145,7 +133,7 @@
     , "items": {
         "volunteer": {
           "title": "Volunteer"
-        , "desc": "<ul> <li>Twin Cities Food Justice</li> <li>Jazz instruction beginning in 2012</li> <li>Performed recitals at Senior Living Centers as community service, 2008&#8211;2009</li></ul>"
+        , "desc": "<ul> <li>Volunteer Driver - Twin Cities Food Justice</li></ul>"
         }
       , "marathon": {
           "title": "Running"
