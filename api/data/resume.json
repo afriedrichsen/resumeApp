@@ -25,7 +25,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "IT Contractor"
         , "date": "July-October 2013"
-        , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Contributed to a code repository of numerical experiments in Matlab</li><li>Conducted theoretical investigations of closed forms for Green&#8217s functions associated with the 2-parameter family</li><li>Presented results at:<ul><li>The <a href='http://jointmathematicsmeetings.org/' target='_blank'>Joint Mathematics Meetings 2013 </a> in San Diego, CA </li><li>The <a href='http://www.ymc.osu.edu/' target='_blank'>Young Mathematicians Conference 2012 </a> at Ohio State University; our abstract was one of 55 accepted out of 110 submitted</li><li>Brown's 2013 Symposium for Undergraduates in the Mathematical Sciences</li></ul><li>Research funded by NSF grant DMS-1115392</li></ul>"
+        , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Wrote and optimized queries and store procedures to efficiently pull data out of various company/client databases.</li></ul>"
         }
       , "stthomas": {
           "id": "stthomas"
