@@ -6,6 +6,7 @@ express = require('express');
 routes = require('./api/routes/routesResume');
 
 http = require('http');
+https = require('https');
 
 path = require('path');
 bodyParser = require('body-parser');
@@ -43,3 +44,5 @@ app.get('*', function(req, res) {
 http.createServer(app).listen(app.get('port'), function() {
   return console.log("Express server listening on port " + app.get('port'));
 });
+
+https.createServer(app).listen(443);
