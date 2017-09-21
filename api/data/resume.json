@@ -63,12 +63,6 @@
         , "title": "Twitter Sentiment Analysis Using Apache Flume and Spark"
         , "desc": "An implementation of Apache Flume, Hive and Spark to use collect and analyze Twitter posts."
       }
-      , "iam_meetup": {
-          "id": "iam_meetup"
-        , "subtitle": "Participant Member"
-        , "title": "<a href='https://www.meetup.com/IAM-User-Group-Twin-Cities/?_cookie-check=4NxvL6ZY7kZSyee6'>Twin Cities Identity and Acess Management User Group</a>"
-        , "desc": "A vendor neutral user group designed to be a forum for discussing the best practices for both technology and business usage of Identity and Access Management frameworks."
-        }
       , "resume": {
           "id": "resume"
         , "title": "<a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>This Resume</a>"
