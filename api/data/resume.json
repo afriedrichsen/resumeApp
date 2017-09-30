@@ -25,7 +25,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "IT Contractor"
         , "date": "July-October 2013"
-        , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Wrote and optimized queries and store procedures to efficiently pull data out of various company/client databases.</li></ul>"
+        , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Wrote and optimized queries and store procedures to efficiently pull data out of various company/client databases.</li><li>Maintained and optimized Apache Pig script responsible for consuming XML and JSON log files and evaluating for use by Splunk.</li><li>Designed and maintained Express/NodeJS webservice for obtaining event log data</li></ul>"
         }
       , "stthomas": {
           "id": "stthomas"
@@ -49,7 +49,7 @@
         , "place": "St. Paul, MN"
         , "subtitle": "B.A. in Economics&#8212;B.A. in Political Science"
         , "date": "May, 2013"
-        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Econometrics and Computer Science</li><li>Mathematical Economics</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
+        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Mathematical Economics</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
         }
       }
     }
@@ -67,7 +67,7 @@
           "id": "resume"
         , "title": "<a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>This Resume</a>"
         , "website": "https://github.com/afriedrichsen/resumeApp"
-        , "desc": "As a way of getting familiar with the <code>Node</code> + <code>CoffeeScript</code> + <code>Express</code> + <code>Jade</code> + <code>Less</code> + <code>Bootstrap</code> stack, I built this resume page as an open-source Node app. The app renders resume content stored in a <span class='mono-font'>.JSON</span> file. Check out the <a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>repo on github</a>."
+        , "desc": "As a way of demonstrating my abilities with <code>Node</code> and other related technologies (<code>CoffeeScript</code> + <code>Express</code> + <code>Jade</code>, specifically), I built this resume page. The app renders resume content stored in a <span class='mono-font'>MongoDB</span> database. Check out the <a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>repo on github</a>."
         }
       }
     }
@@ -85,6 +85,7 @@
       , "vbscript": {"title": "VB.Net", "level": "55"}
       , "unix": {"title": "Unix", "level": "90"}
       , "windows": {"title": "Windows", "level": "90"}
+      ,"docker": {"title":"Docker","level": "45"}
       }
     }
   , "skillbars-print": {
@@ -107,7 +108,7 @@
         , "place": "Minneapolis, MN"
         , "subtitle": "Mentor"
         , "date": "2014&#8211;Present"
-        , "desc": "<ul><li>Helped kickstart the intern program, both as an intern in Summer 2012 and as an alumni mentoring new interns each year.</li> <li>Collaborated with the college recruiment group within the Bank to expand the internship program from IT-only interns to a internship covering all Bank departments.</li><li>Assisted with conducting interviews with potential intern candidates.</li><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to security, the program itself, or otherwise.</li></ul>"
+        , "desc": "<ul><li>Helped kick-start the intern program, both as an intern in Summer 2012 and as an alumni mentoring new interns each year.</li> <li>Collaborated with the college recruiment group within the Bank to expand the internship program from IT-only interns to a internship covering all Bank departments.</li><li>Assisted with conducting interviews with potential intern candidates.</li><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to security, the program itself, or otherwise.</li></ul>"
         }
       , "usbiamconnect": {
           "id": "usbiamconnect"
