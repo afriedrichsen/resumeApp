@@ -1,7 +1,9 @@
 -#!/bin/sh
 ssh webdemon@192.168.86.69 <<EOF        
- cd /apps/www/resumeApp 
- git pull       
+ cd /apps/www/
+ rm -rf resumeApp
+ git clone jenkins@trotsky:/data/repos/resumeApp.git
+ cd resumeApp
  npm install --production       
  pm2 restart all
  exit       
