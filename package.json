@@ -34,7 +34,7 @@
     "test": "mocha --require should --compilers coffee:coffee-script --colors",
     "development": "nodemon app.js",
     "production": "pm2 start app.js",
-    "docker":"node app.js"
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",

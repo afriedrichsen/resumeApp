@@ -1,5 +1,7 @@
 FROM node:8.6.0-alpine
 
+MAINTAINER Alex Friedrichsen <afriedrichsen@me.com>
+
 # Update
 RUN apk add --update nodejs
 
@@ -11,4 +13,4 @@ RUN cd /app; npm install --production
 
 EXPOSE 2112
 
-CMD [ "npm","docker"]
+CMD [ "npm","start"]
