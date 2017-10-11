@@ -11,4 +11,4 @@ RUN cd /app; npm install --production
 
 EXPOSE 2112
 
-CMD [ "npm","docker"]
+CMD [ "node","app.js"]
