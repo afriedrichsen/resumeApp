@@ -58,6 +58,6 @@ typings/
 .env
 
 #IntelliJ
-.idea
+.idea/
 
 package-lock.json
