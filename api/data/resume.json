@@ -80,6 +80,7 @@
       , "pig": {"title": "Apache Pig", "level": "90"}
       , "spark":{"title":"Spark", "level":"80"}
       , "scala": {"title": "ScalaJS", "level": "70"}
+      , "Csharp": {"title": "C#", "level": "65"}
       , "node": {"title": "Node.js", "level": "65"}
       , "mongodb": {"title": "MongoDB", "level": "60"}
       , "vbscript": {"title": "VB.Net", "level": "55"}
