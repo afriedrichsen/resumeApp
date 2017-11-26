@@ -1,6 +1,6 @@
 {
   "name": "resumeapp.friedunix.net",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Resume for Alex Friedrichsen written primarily in NodeJS",
   "main": "index.js",
   "directories": {
@@ -34,7 +34,7 @@
     "test": "mocha --require should --compilers coffee:coffee-script --colors",
     "development": "nodemon app.js",
     "production": "pm2 start app.js",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
