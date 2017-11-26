@@ -14,9 +14,9 @@
           "id": "usbank"
         , "title": "US Bancorp. Inc"
         , "place": "Minneapolis/Richfield, MN"
-        , "subtitle": "Information Security Specialist"
+        , "subtitle": "Information Security Specialist - Officer"
         , "date": "October 2013–Present"
-        , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting dashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Contributed to product and security development of the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
+        , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting dashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Wrote and maintained custom .NET (C#) libraries used by core applications in the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
         }
       , "teksystems": {
           "id": "teksystems"
@@ -49,7 +49,7 @@
         , "place": "St. Paul, MN"
         , "subtitle": "B.A. in Economics&#8212;B.A. in Political Science"
         , "date": "May, 2013"
-        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Mathematical Economics</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
+        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
         }
       }
     }
@@ -78,14 +78,14 @@
        "sql": {"title": "SQL", "level": "95"}
       ,"python": {"title": "Python", "level": "95"}
       , "pig": {"title": "Apache Pig", "level": "90"}
-      , "spark":{"title":"Spark", "level":"80"}
+      , "Csharp": {"title": "C#", "level": "70"}
       , "scala": {"title": "ScalaJS", "level": "70"}
-      , "Csharp": {"title": "C#", "level": "65"}
       , "node": {"title": "Node.js", "level": "65"}
       , "mongodb": {"title": "MongoDB", "level": "60"}
-      , "vbscript": {"title": "VB.Net", "level": "55"}
+      , "vbscript": {"title": "VB.Net", "level": "60"}
       , "unix": {"title": "Unix", "level": "90"}
       , "windows": {"title": "Windows", "level": "90"}
+      ,"jenkins": {"title":"Jenkins","level": "55"}
       ,"docker": {"title":"Docker","level": "45"}
       }
     }
@@ -130,9 +130,6 @@
         }
       , "marathon": {
           "title": "Running"
-        }
-      , "beer": {
-          "title": "Beer Brewing"
         }
       }
     }
