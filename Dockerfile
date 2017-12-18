@@ -1,9 +1,9 @@
-FROM node:8.6.0-alpine
+FROM node:9.3.0-latest
 
 MAINTAINER Alex Friedrichsen <afriedrichsen@me.com>
 
 # Update
-RUN apk add --update nodejs
+#RUN apk add --update nodejs
 
 WORKDIR /app
 
