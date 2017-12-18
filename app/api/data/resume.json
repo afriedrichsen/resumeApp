@@ -126,7 +126,7 @@
     , "items": {
         "volunteer": {
           "title": "Volunteer"
-        , "desc": "<ul> <li>Volunteer Driver - Twin Cities Food Justice</li></ul>"
+        , "desc": "<ul> <li>Volunteer Driver - <a href='https://tcfoodjustice.org'>Twin Cities Food Justice</a></li></ul>"
         }
       , "marathon": {
           "title": "Running"

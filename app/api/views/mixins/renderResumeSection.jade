@@ -3,8 +3,9 @@ mixin renderResumeSection(sec)
   include renderSkillBar
   section(id=sec.id)
     .row
-      .page-header
-        h2= sec.title
+      .col-sm
+        .page-header.border.border-left-0.border-right-0.border-top-0
+          h2= sec.title
     unless typeof sec.items === undefined
       for item in sec.items
         unless typeof item === undefined

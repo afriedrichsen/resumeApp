@@ -1,0 +1,12 @@
+mixin renderSkillBar(item)
+  fullSpan  = "span12"
+  bigSpan  = "span6"
+  smallSpan = "span3"
+
+  .row.skillbar
+    .col-sm-2
+        h4.mono-font.hidden-phone.skillbar-title!= item.title
+    .col-lg.float-left
+      .progress
+        .progress-bar(style="width: "+item.level+"%;")
+    .col-sm-2
