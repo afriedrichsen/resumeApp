@@ -16,7 +16,7 @@
         , "place": "Minneapolis/Richfield, MN"
         , "subtitle": "Information Security Specialist - Officer"
         , "date": "October 2013–Present"
-        , "desc": "<ul><li>Used Python and SQL to provide analytics and metrics from data sourced from several identity and access management tools used by the Bank.</li><li>Designed and implemented dynamic reporting dashboards (in Scala and NodeJS) to replace manually created CSV/Excel reports.</li><li>Wrote and maintained custom .NET (C#) libraries used by core applications in the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB) solution for tracking application account metadata for all Bank applications.</li></ul>"
+        , "desc": "<ul><li>Use Python and SQL to provide automated reports using data sourced from several identity and access management tools. Served automated reports using Django.</li><li>Write and maintain custom .NET (C#) libraries used by core applications in the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB)/ExpressJS solution for tracking application account metadata for all Bank applications.</li></ul>"
         }
       , "teksystems": {
           "id": "teksystems"
@@ -25,7 +25,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "IT Contractor"
         , "date": "July-October 2013"
-        , "desc": "<ul><li>Used Python to extract, transform and load data from SQL and flat file sources (text, CSV, JSON) into reporting tools used by executive management.</li><li>Wrote and optimized queries and store procedures to efficiently pull data out of various company/client databases.</li><li>Maintained and optimized Apache Pig script responsible for consuming XML and JSON log files and evaluating for use by Splunk.</li><li>Designed and maintained Express/NodeJS webservice for obtaining event log data</li></ul>"
+        , "desc": "<ul><li>Used SQL and Python to create automated reports on workstation and server vulnerabilities.</li><li>Maintained and optimized database stored procedures and functions, eliminating the reporting work of two full time analysts.</li><li>Maintained Java code responsible for generating regularly scheduled reports.</li></ul>"
         }
       , "stthomas": {
           "id": "stthomas"
@@ -77,12 +77,12 @@
     , "items": {
        "sql": {"title": "SQL", "level": "95"}
       ,"python": {"title": "Python", "level": "95"}
-      , "pig": {"title": "Apache Pig", "level": "90"}
       , "Csharp": {"title": "C#", "level": "70"}
-      , "scala": {"title": "ScalaJS", "level": "70"}
       , "node": {"title": "Node.js", "level": "65"}
       , "mongodb": {"title": "MongoDB", "level": "60"}
       , "vbscript": {"title": "VB.Net", "level": "60"}
+      , "pig": {"title": "Apache Pig", "level": "50"}
+    , "scala": {"title": "ScalaJS", "level": "50"}
       , "unix": {"title": "Unix", "level": "90"}
       , "windows": {"title": "Windows", "level": "90"}
       ,"jenkins": {"title":"Jenkins","level": "55"}
@@ -109,7 +109,7 @@
         , "place": "Minneapolis, MN"
         , "subtitle": "Mentor"
         , "date": "2014&#8211;Present"
-        , "desc": "<ul><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to the program itself, career development, or otherwise.</li><li>Assisted with conducting interviews with potential intern candidates.</li><li>Collaborated with the Bank college recruitment group to expand the internship program from Technology to a program covering all Bank departments.</li></ul>"
+        , "desc": "<ul><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to the program itself, career development, or otherwise.</li><li>Assist with conducting interviews with potential intern candidates.</li><li>Collaborated with the Bank college recruitment group to expand the internship program from Technology to a program covering all Bank departments.</li></ul>"
         }
       , "usbiamconnect": {
           "id": "usbiamconnect"
@@ -117,7 +117,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "Application Development Advisor"
         , "date": "Spring 2017&#8211;Present"
-        , "desc": "<ul> <li>IAM Connect is a virtual team of developers, engineers and analysts working in both security and other development groups throughout the Bank.</li> <li>Worked as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assisted as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
+        , "desc": "<ul> <li>IAM Connect is a virtual team of developers, engineers and analysts working in both security and other development groups throughout the Bank.</li> <li>Work as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assist as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
         }
       }
     }
