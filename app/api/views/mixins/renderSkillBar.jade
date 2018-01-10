@@ -1,3 +1,4 @@
+-var levelNumToString = function(n) {var result; if(n>=0 && n<26){result = "Beginner";}else if(n>=26 && n<51){result="Proficient";} else if(n>=51 && n<76){result = "Intermediate";}else{result = "Advanced";} return result;}
 mixin renderSkillBar(item)
   fullSpan  = "span12"
   bigSpan  = "span6"
@@ -8,5 +9,5 @@ mixin renderSkillBar(item)
         h4.mono-font.hidden-phone.skillbar-title!= item.title
     .col-lg.float-left
       .progress
-        .progress-bar(style="width: "+item.level+"%;")
+        .progress-bar(style="width: "+item.level+"%;")!=levelNumToString(item.level) +" (" +item.years + ")"
     .col-sm-2

@@ -34,7 +34,7 @@
         , "place": "St. Paul, MN"
         , "subtitle": "Student Technician"
         , "date": "September 2009-July 2013"
-        , "desc": "<ul><li>Assisted students, faculty and staff with both hardware and software administration tasks (account resets, mail/file quotas, etc.)</li><li>Assisted with the desgin of SSRS/SSIS packages to present data from a SQL database tracking loanable technology assets (laptops, projectors, etc.)</li></ul>"
+        , "desc": "<ul><li>Assisted students, faculty and staff with both hardware and software administration tasks (account resets, mail/file quotas, etc.)</li><li>Assisted with the design of SSRS/SSIS packages to present data from a SQL database tracking loanable technology assets (laptops, projectors, etc.)</li><li>Contributed to the design of a self-service web application in Django/ReactJS for fetching reports on loanable technology assets.</li></ul>"
         }
       }
     }
@@ -49,7 +49,7 @@
         , "place": "St. Paul, MN"
         , "subtitle": "B.A. in Economics&#8212;B.A. in Political Science"
         , "date": "May, 2013"
-        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra<li>Cybersecurity and International Relations</li>"
+        , "desc": "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra</li>"
         }
       }
     }
@@ -75,18 +75,16 @@
       "id": "skillbars"
     , "title": "Technical Skills"
     , "items": {
-       "sql": {"title": "SQL", "level": "95"}
-      ,"python": {"title": "Python", "level": "95"}
-      , "Csharp": {"title": "C#", "level": "70"}
-      , "node": {"title": "Node.js", "level": "65"}
-      , "mongodb": {"title": "MongoDB", "level": "60"}
-      , "vbscript": {"title": "VB.Net", "level": "60"}
-      , "pig": {"title": "Apache Pig", "level": "50"}
-    , "scala": {"title": "ScalaJS", "level": "50"}
-      , "unix": {"title": "Unix", "level": "90"}
-      , "windows": {"title": "Windows", "level": "90"}
-      ,"jenkins": {"title":"Jenkins","level": "55"}
-      ,"docker": {"title":"Docker","level": "45"}
+       "sql": {"title": "SQL", "level": "95", "years":"6 years"}
+      ,"python": {"title": "Python", "level": "95","years":"6 years"}
+      , "Csharp": {"title": "C#", "level": "70","years":"4 years"}
+      , "node": {"title": "Node.js", "level": "65", "years":"3 years"}
+      , "mongodb": {"title": "MongoDB", "level": "50", "years":"3 years"}
+      , "vbscript": {"title": "VB.Net", "level": "70", "years":"4 years"}
+      , "unix": {"title": "Unix/Bash", "level": "80", "years":"6 years"}
+      , "windows": {"title": "Windows/PS", "level": "90", "years":"6 years"}
+      ,"jenkins": {"title":"Jenkins","level": "45","years":"1 year"}
+      ,"docker": {"title":"Docker","level": "45", "years":"2 years"}
       }
     }
   , "skillbars-print": {
@@ -127,9 +125,6 @@
         "volunteer": {
           "title": "Volunteer"
         , "desc": "<ul> <li>Volunteer Driver - <a href='https://tcfoodjustice.org'>Twin Cities Food Justice</a></li></ul>"
-        }
-      , "marathon": {
-          "title": "Running"
         }
       }
     }
