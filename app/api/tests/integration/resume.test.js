@@ -16,4 +16,13 @@ describe ('Resume API', async () => {
             expect(res.body).to.be.an('object');
         });
     });
+
+    it('should error out on invalid path.', async () =>{
+        return request(app)
+            .get('/poop')
+            .then((res, err) => {
+                expect(httpStatus.NOT_FOUND);
+                expect(res.body.code).to.be.equal(404);
+        });
+    });
 });
