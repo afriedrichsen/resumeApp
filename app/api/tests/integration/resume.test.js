@@ -14,7 +14,6 @@ describe ('Resume API', async () => {
             .then((res, err) => {
             expect(httpStatus.OKAY);
             expect(res.body).to.be.an('object');
-            done();
         });
     });
 });
