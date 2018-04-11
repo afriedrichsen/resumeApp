@@ -12,7 +12,7 @@ describe ('Resume API', async () => {
         return request(app)
             .get('/')
             .then((res, err) => {
-            expect(res).to.have.status(200);
+            expect(httpStatus.OKAY);
             expect(res.body).to.be.an('object');
             expect(res.body.results).to.be.an('array');
             done();
