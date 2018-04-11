@@ -3,7 +3,7 @@ var app, express, http, path, routes, bodyParser, favicon, logger;
 
 express = require('express');
 
-routes = require('./api/routes/routesResume');
+routes = require('./api/routes/resume.route');
 
 http = require('http');
 https = require('https');
