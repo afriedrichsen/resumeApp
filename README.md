@@ -1,6 +1,6 @@
 # Resume Node JS Application
 [![Build Status](https://travis-ci.org/afriedrichsen/resumeApp.svg?branch=master)](https://travis-ci.org/afriedrichsen/resumeApp)
-
+[![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
 ### Features
 * ES2017 Syntax for ExpressJS
 * Docker build
@@ -11,7 +11,7 @@
 
 ### Prerequisites
 
-* NodeJS (9.6+)
+* Node.js (9.1+)
 * Docker (if running as container)
 
 
@@ -47,6 +47,7 @@ Alternatively, you can also run the project in Docker swarm for easy scaling.
 docker-compose up
 
 OR 
+
 docker stack deploy -c docker-compose.yml <stack name here>
 ```
 
