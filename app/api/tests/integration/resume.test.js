@@ -12,10 +12,10 @@ describe ('Resume API', async () => {
         return request(app)
             .get('/')
             .expect(httpStatus.OK)
-            .then(async (res, err) => {
-                expect(res.body).to.be.an('array');
-                done();
-              }
-        })
+            .end((res, err) => {
+            expect(res.body).to.be.an('array');
+            done();
+        });
+        )
     });
 });
