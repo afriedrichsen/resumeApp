@@ -46,8 +46,11 @@ app.use(helmet());
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
 
+//Here is our public folder/content.
 app.use(express["static"](path.join(__dirname, '../../public')));
 
+//Here are the routes for our API.
+// Alternatively, we can break these out by "sub-roots" (e.g. /v1, /v2, /beta, /prod etc.)
 app.use('/', routes);
 
 // if error is not an instanceOf APIError, convert it.
@@ -58,5 +61,11 @@ app.use(error.notFound);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
+
+
+
+app.get('*', function(req, res) {
+    return res.redirect("http://alex.friedrichsen.me/resume.html");
+});
 
 module.exports = app;
