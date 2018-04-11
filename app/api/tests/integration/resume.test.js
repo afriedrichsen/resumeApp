@@ -16,6 +16,5 @@ describe ('Resume API', async () => {
             expect(res.body).to.be.an('array');
             done();
         });
-        )
     });
 });
