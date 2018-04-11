@@ -1,5 +1,5 @@
 # Resume Node JS Application
-by Alex Friedrichsen (afriedrichsen)
+[![Build Status](https://travis-ci.org/afriedrichsen/resumeApp.svg?branch=master)](https://travis-ci.org/afriedrichsen/resumeApp)
 
 ### Features
 * ES2017 Syntax for ExpressJS
