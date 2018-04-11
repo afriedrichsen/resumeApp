@@ -1,6 +1,6 @@
 const request = require('supertest');
 const httpStatus = require('http-status');
-//const { expect } = require('chai');
+const { expect } = require('chai');
 //const sinon = require('sinon');
 //const bcrypt = require('bcryptjs');
 //const { some, omitBy, isNil } = require('lodash');
@@ -13,8 +13,8 @@ describe ('Resume API', async () => {
             .get('/')
             .expect(httpStatus.OK)
             .then(async (res, err) => {
-              if (err) {
-                  return err;
+                expect(res.body).to.be.an('array');
+                done();
               }
         })
     });
