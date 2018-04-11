@@ -84,6 +84,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-loader": "^2.0.0",
@@ -92,12 +93,18 @@
     "husky": "^0.14.3",
     "mocha": "^3.5.3",
     "nodemon": "^1.13.3",
+    "nyc": "^11.6.0",
     "should": "^13.0.1",
     "sinon": "^4.5.0",
-    "sinon-chai": "^3.0.0"
+    "sinon-chai": "^3.0.0",
+    "supertest": "^3.0.0"
   },
   "scripts": {
-    "test": "mocha --require should --compilers coffee:coffee-script --colors",
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 20000 --recursive app/api/tests",
+    "validate": "yarn lint && yarn test",
+    "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint:fix": "yarn lint -- --fix",
+    "lint:watch": "yarn lint -- --watch",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
     "start": "node ./app/index.js"
