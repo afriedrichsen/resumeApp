@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  resume-app:
+    image: afriedrichsen/core-projects:resumejs
+    deploy:
+      replicas: 4
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "100M"
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "2112:2112"
+    networks:
+      - friednet
+networks:
+  friednet:

@@ -29,7 +29,7 @@ nano .env
 
 3.) Run the application.
 ```
-cd ../../ (Assuming you followed step one, otherwise, change to project root).
+cd ../../ (Assuming you followed Step 2, otherwise, change to project root).
 npm run development
 ```
 #### Production (Docker Container)
@@ -39,6 +39,15 @@ Rather than run the application, instead change into the project root directory 
 ```
 cd resumeApp
 docker build -t <your tag> .
+```
+
+Alternatively, you can also run the project in Docker swarm for easy scaling.
+
+```
+docker-compose up
+
+OR 
+docker stack deploy -c docker-compose.yml <stack name here>
 ```
 
 ## Authors
