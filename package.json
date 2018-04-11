@@ -105,6 +105,7 @@
     "validate": "yarn lint && yarn test",
     "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint:watch": "yarn lint -- --watch",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
