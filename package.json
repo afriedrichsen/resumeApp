@@ -57,7 +57,7 @@
     "test": "mocha --require should --compilers coffee:coffee-script --colors",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
-    "start": "node ./app/app.js"
+    "start": "node ./app/index.js"
   },
   "repository": {
     "type": "git",
