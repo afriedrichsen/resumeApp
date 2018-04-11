@@ -11,9 +11,10 @@ describe ('Resume API', async () => {
     it('should get resume index page', () => {
         return request(app)
             .get('/')
-            .expect(httpStatus.OK)
             .then((res, err) => {
-            expect(res.body).to.be.an('array');
+            expect(res).to.have.status(200);
+            expect(res.body).to.be.an('object');
+            expect(res.body.results).to.be.an('array');
             done();
         });
     });
