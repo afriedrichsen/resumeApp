@@ -25,4 +25,12 @@ describe ('Resume API', async () => {
                 expect(res.body.code).to.be.equal(404);
         });
     });
+
+    it('should error out on invalid request type', async () => {
+        return request(app)
+            .post('/')
+            .then((res, err) => {
+                expect(httpStatus.BAD_REQUEST);
+        });
+    });
 });
