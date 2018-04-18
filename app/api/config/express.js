@@ -55,7 +55,7 @@ app.use(express["static"](path.join(__dirname, '../../public')));
 app.use('/', routes);
 
 // if error is not an instanceOf APIError, convert it.
-app.use(error.converter);
+//app.use(error.converter);
 
 // catch 404 and forward to error handler
 app.use(error.notFound);

@@ -29,7 +29,7 @@ exports.handler = handler;
  * If error is not an instanceOf APIError, convert it.
  * @public
  */
-exports.converter = (err, req, res, next) => {
+/*exports.converter = (err, req, res, next) => {
     let convertedError = err;
 
     if (err instanceof expressValidation.ValidationError) {
@@ -49,7 +49,7 @@ exports.converter = (err, req, res, next) => {
 
     return handler(convertedError, req, res);
 };
-
+*/
 
 /**
  * Catch 404 and forward to error handler
