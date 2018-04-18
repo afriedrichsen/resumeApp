@@ -3,11 +3,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
 ### Features
 * ES2017 Syntax for ExpressJS
+* "Plain" JavaScript (i.e. no transpilers)
 * Docker build
-* Vanilla JavaScript (no transpilers)
 * Mongoose (MongoDB) support
 * API documentation generation with apidoc
-* Mocha for unit and integration testing
+* Mocha and Chai for unit and integration testing
 * ESLint as JS linter
 
 

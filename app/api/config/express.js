@@ -63,10 +63,4 @@ app.use(error.notFound);
 // error handler, send stacktrace only during development
 app.use(error.handler);
 
-
-
-//app.get('*', function(req, res) {
-//    return res.redirect("http://alex.friedrichsen.me/resume.html");
-//});
-
 module.exports = app;
