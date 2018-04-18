@@ -7,6 +7,8 @@
 * Vanilla JavaScript (no transpilers)
 * Mongoose (MongoDB) support
 * API documentation generation with apidoc
+* Mocha for unit and integration testing
+* ESLint as JS linter
 
 
 ### Prerequisites
