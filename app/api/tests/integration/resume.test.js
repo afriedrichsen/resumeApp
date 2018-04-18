@@ -6,7 +6,7 @@ const { expect } = require('chai');
 //const { some, omitBy, isNil } = require('lodash');
 const app = require('../../../index');
 
-
+// Integration test for resume Express API follows.
 describe ('Resume API', async () => {
     it('should get resume index page', () => {
         return request(app)
@@ -29,6 +29,7 @@ describe ('Resume API', async () => {
     it('should error out on invalid request type', async () => {
         return request(app)
             .post('/')
+            .send({id: '2'})
             .then((res, err) => {
                 expect(httpStatus.BAD_REQUEST);
         });
