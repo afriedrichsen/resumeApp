@@ -1,7 +1,7 @@
 {
   "name": "resumeapp.friedunix.net",
   "version": "1.7.5",
-  "description": "Resume for Alex Friedrichsen written primarily in NodeJS",
+  "description": "Resume for Alex Friedrichsen written primarily in Node.js",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -52,7 +52,7 @@
       "<rootDir>/app/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "node",
-    "testURL": "http://localhost",
+    "testURL": "http://localhost:2112",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/app/api/config/jest/cssTransform.js",

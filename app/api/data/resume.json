@@ -24,7 +24,7 @@
         , "place": "Richfield, MN"
         , "subtitle": "IT Contractor"
         , "date": "July-October 2013"
-        , "desc": "<ul><li>Used SQL and Python to create automated reports on workstation and server vulnerabilities.</li><li>Maintained and optimized database stored procedures and functions, eliminating the reporting work of two full time analysts.</li><li>Maintained Java code responsible for generating regularly scheduled reports.</li></ul>"
+        , "desc": "<ul><li>Used SQL and Python to create automated reports on workstation and server vulnerabilities.</li><li>Maintained and optimized database stored procedures and functions.</li><li>Maintained Java code responsible for generating regularly scheduled reports.</li></ul>"
         }
       , "stthomas": {
           "id": "stthomas"
@@ -56,7 +56,13 @@
       "id": "projects"
     , "title": "Projects"
     , "items": {
-        "spark": {
+        "office365-admin": {
+        "id": "office365-admin"
+      , "title": "<a href='https://github.com/afriedrichsen/node-o365-admin-service' target='_blank'>Microsoft Azure Administration Service</a>"
+      , "website": "https://github.com/afriedrichsen/node-o365-admin-service"
+      , "desc": "An Node.js web application with designed for administering Microsoft Azure and its related services (specifically Office365, Intune and OneDrive). Leverages the Microsoft Graph API. Implements a UI built with <code>React</code>/<code>Redux.</code>"
+      }
+      ,  "spark": {
           "id": "spark"
         , "label": "Coming soon"
         , "title": "Twitter Sentiment Analysis Using Apache Flume and Spark"
