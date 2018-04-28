@@ -114,14 +114,6 @@
         , "date": "2014&#8211;Present"
         , "desc": "<ul><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to the program itself, career development, or otherwise.</li><li>Assist with conducting interviews with potential intern candidates.</li><li>Collaborated with the Bank college recruitment group to expand the internship program from Technology to a program covering all Bank departments.</li></ul>"
         }
-      , "usbiamconnect": {
-          "id": "usbiamconnect"
-        , "title": "U.S. Bank IAM Connect"
-        , "place": "Richfield, MN"
-        , "subtitle": "Application Development Advisor"
-        , "date": "Spring 2017&#8211;Present"
-        , "desc": "<ul> <li>IAM Connect is a virtual team of developers, engineers and analysts working in both security and other development groups throughout the Bank.</li> <li>Work as an identity and access (IAM) advisor for the group to help foster robust communities of practice with respect to developing secure applications using the Bank's existing IAM infrastructure.</li><li>Assist as point-of-contact for researching and developing proof-of-concepts related to new IAM technologies.</li></ul>"
-        }
       }
     }
   , "activities": {
