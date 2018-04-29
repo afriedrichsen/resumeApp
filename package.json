@@ -1,6 +1,6 @@
 {
   "name": "resumeapp.friedunix.net",
-  "version": "1.7.5",
+  "version": "2.0.0",
   "description": "Resume for Alex Friedrichsen written primarily in Node.js",
   "main": "index.js",
   "directories": {
