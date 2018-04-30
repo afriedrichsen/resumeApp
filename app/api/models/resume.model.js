@@ -1,3 +1,4 @@
+"use strict";
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 //const { omitBy, isNil } = require('lodash');
@@ -10,7 +11,7 @@ const Schema = mongoose.Schema;
  * @private
  */
 const ResumeSchema = new Schema({
-
+/*
     user_name: {
         type: String,
         required: true
@@ -100,7 +101,7 @@ const ResumeSchema = new Schema({
             }
         }
     },
-
+*/
     },{collection: 'resume_data'});
 /**
  * Methods
@@ -110,15 +111,8 @@ const ResumeSchema = new Schema({
 /**
  * Statics
  */
-ResumeSchema.statics = {
-    async getbyName(name) {
-        try {
-      //      const resume = await
-      //      ResumeSchema.find({user_name: name}).exec();
-      //      console.log(resume);
-        } catch (error) {
-            console.log(error);
-        }
-}
-}
+
+/**
+ * Export schema for use.
+ */
 module.exports = mongoose.model('resume_data', ResumeSchema);

@@ -1,23 +1,21 @@
 extends layout
 block content
-
-    include mixins/renderResumeSection
-
-    header.hero
-        .row
-            .span12.center
-                h1.display-name
-                    strong= settings.name
-                span
-                    address
-                        a(href="https://"+settings.homepage)= settings.homepage
-                        br
-                        a(href="mailto:"+settings.email)= settings.email
-                        br
-                        p= settings.phone
-                        p.social-media
-                            for service in socialmedia
-                                a(href=service.url, target='_blank')
-                                    img(class="img-circle", src="img/"+service.iconName+".png")
-    for sec in sections
-     +renderResumeSection(sec)
+ include mixins/renderResumeSection
+ header.hero
+  .row
+    .span12.center
+      h1.display-name
+        strong= settings.name
+      span
+        address
+          a(href="https://"+settings.homepage)= settings.homepage
+          br
+          a(href="mailto:"+settings.email)= settings.email
+          br
+          p= settings.phone
+          p.social-media
+            for service in socialmedia
+              a(href=service.url, target='_blank')
+                img(class="img-circle", src="img/"+service.iconName+".png")
+ for sec in sections
+   +renderResumeSection(sec)
