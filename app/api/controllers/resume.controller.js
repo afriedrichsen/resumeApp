@@ -1,11 +1,26 @@
 const resume = require('../data/resume');
+const mongoose = require('mongoose');
 const { handler: errorHandler } = require('../middlewares/error');
 
-exports.index = async (req, res) => {
+
+// Here is where we load our resume model.
+//const Resume = require('../models/resume.model');
+
+exports.index = async (req, res, next) => {
 
   try {
-    return res.render('index', resume);
+
+ //   const resume = await Resume.find({user_name: "Alexander Friedrichsen"});
+
+ //   console.log(resume);
+
+    return res.render('index', resume[0]);
+    //return resume;
+    //req.locals = { resume };
+
+  //  return next();
   } catch (error) {
-    return errorHandler(error, req, res);
+    //return errorHandler(error, req, res);
+      return next(error);
   }
 }

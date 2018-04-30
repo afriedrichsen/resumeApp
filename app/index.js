@@ -4,11 +4,11 @@ Promise = require('bluebird'); // eslint-disable-line no-global-assign
 const { port, env } = require('./api/config/vars');
 const app = require('./api/config/express');
 
-// const mongoose = require('./config/mongoose');
+const mongoose = require('./api/config/mongoose');
 
 // open mongoose connection
 
-// mongoose.connect();
+mongoose.connect();
 
 console.log(process.env.NODE_ENV);
 
