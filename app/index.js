@@ -10,7 +10,7 @@ const mongoose = require('./api/config/mongoose');
 
 mongoose.connect();
 
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 
 // listen to requests
 app.listen(port, () => console.info(`server started on port ${port} (${env})`));

@@ -101,7 +101,9 @@ const ResumeSchema = new Schema({
     },
 
     },{collection: 'resume_data'});
-
+/**
+ * Methods
+ */
 ResumeSchema.method({
     transform() {
         const transformed = {};
@@ -114,6 +116,26 @@ ResumeSchema.method({
         return transformed;
     }
 });
+/**
+ * Statics
+ */
+ResumeSchema.statics = {
+    async getbyName(name) {
+    try {
+        let user;
+
+        if (name) {
+            user = await this.find({user_name: name}).exec();
+            console.log(user);
+        }
+        if (user) {
+            return user;
+        }
 
 
+    } catch (error) {
+        throw error;
+    }
+}
+}
 module.exports = mongoose.model('resume_data', ResumeSchema);
