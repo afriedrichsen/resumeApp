@@ -1,0 +1,74 @@
+mixin renderResumeItem(item)
+  .resume-item(id=item.id)
+    //-title row
+    if(item.hasOwnProperty('title'))
+      if(item.hasOwnProperty('place'))
+        .row.title-row
+          .col-sm
+            h4.title!= item.title
+          .col-sm
+            h4.float-right.hidden-phone.place!= item.place
+      else if (item.hasOwnProperty('date') && !(item.hasOwnProperty('subtitle')))
+        .row.title-row
+          .col-sm
+            h4.title!= item.title
+              if (item.hasOwnProperty('label'))
+                span.badge.badge-info.hidden-phone!= item.label
+          .col-sm
+            span.hidden-phone.float-right.date!= item.date
+      else
+        .row.title-row
+          .col-sm
+            span12
+             h4.title!= item.title
+              if(item.hasOwnProperty('label'))
+               span.badge.badge-info.hidden-phone!= item.label
+    if(item.hasOwnProperty('subtitle'))
+      if(item.hasOwnProperty('place') && item.hasOwnProperty('date'))
+        .row.subtitle-row
+          .col-sm
+            span.subtitle!= item.subtitle
+              if(item.hasOwnProperty('label'))
+               span.visible-phone.badge.badge-info!= item.label
+               span.badge.badge-info.hidden-phone!= item.label
+          .col-sm
+            span.hidden-phone.float-right.date!= item.date
+      else if(item.hasOwnProperty('date'))
+        .row.subtitle-row
+          .col-sm
+            span.subtitle!= item.subtitle
+              if(item.hasOwnProperty('label'))
+               span.visible-phone.badge.badge-info!= item.label
+               span.label.badge-info.hidden-phone!= item.label
+            .col-sm
+            .col-sm
+              span.hidden-phone.float-right.date!= item.date
+              span.visible-phone.badge.date!= item.date
+          .visible-phone.row.place-row
+            .col-sm
+              div.place(class=fullSpan)!= item.place
+      else
+        .row.subtitle-row
+          .col-sm
+            span12.subtitle!= item.subtitle
+            if(item.hasOwnProperty('label'))
+             span.visible-phone.badge.badge-info!= item.label
+             span.badge.badge-info.hidden-phone!= item.label
+          .visible-phone.row.place-row
+            .col-sm
+              span12.place!= item.place
+    //- Description row.
+    if(item.hasOwnProperty('desc'))
+     if (item.hasOwnProperty('date') && !(item.hasOwnProperty('subtitle')) && !(item.hasOwnProperty('title')))
+      .row.desc-row.visible-phone
+        .col-sm
+          span.visible-phone.badge.date!= item.date
+            span12!= item.desc
+            .row.desc-row.hidden-phone
+              .col-sm
+                span8!= item.desc
+                  span.hidden-phone.float-right.date!= item.date
+     else
+      .row.desc-row
+        .col-sm
+          div(class=fullSpan)!= item.desc

@@ -1,0 +1,15 @@
+mixin renderResumeSection(sec)
+  include renderResumeItem
+  include renderSkillBar
+  section(id=sec.id)
+    .row
+        .col-sm
+            .page-header.border.border-left-0.border-right-0.border-top-0
+                h2= sec.title
+    unless typeof sec.items === undefined
+        for item in sec.items
+            unless typeof item === undefined
+                if(sec.id === "skillbars")
+                    +renderSkillBar(item)
+                else
+                    +renderResumeItem(item)
