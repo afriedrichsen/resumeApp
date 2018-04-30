@@ -31,7 +31,7 @@ app.use(favicon(path.join(__dirname, '../../public/img/favicon.ico')));
 app.use(morgan(logs));
 
 
-// parse body params and attache them to req.body
+// parse body params and attach them to req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -55,7 +55,7 @@ app.use(express["static"](path.join(__dirname, '../../public')));
 app.use('/', routes);
 
 // if error is not an instanceOf APIError, convert it.
-//app.use(error.converter);
+app.use(error.converter);
 
 // catch 404 and forward to error handler
 app.use(error.notFound);

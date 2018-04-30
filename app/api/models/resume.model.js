@@ -16,7 +16,8 @@ const ResumeSchema = new Schema({
         required: true
     },
     socialmedia: {
-        type: Object
+            iconName: {type: String},
+            url: { type: String }
     },
     sections: {
         experience: {
@@ -104,38 +105,20 @@ const ResumeSchema = new Schema({
 /**
  * Methods
  */
-ResumeSchema.method({
-    transform() {
-        const transformed = {};
-        const fields = ['id', 'name', 'email', 'picture', 'role', 'createdAt'];
 
-        fields.forEach((field) => {
-            transformed[field] = this[field];
-    });
 
-        return transformed;
-    }
-});
 /**
  * Statics
  */
 ResumeSchema.statics = {
     async getbyName(name) {
-    try {
-        let user;
-
-        if (name) {
-            user = await this.find({user_name: name}).exec();
-            console.log(user);
+        try {
+      //      const resume = await
+      //      ResumeSchema.find({user_name: name}).exec();
+      //      console.log(resume);
+        } catch (error) {
+            console.log(error);
         }
-        if (user) {
-            return user;
-        }
-
-
-    } catch (error) {
-        throw error;
-    }
 }
 }
 module.exports = mongoose.model('resume_data', ResumeSchema);

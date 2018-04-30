@@ -1,4 +1,4 @@
-//const resume = require('../data/resume');
+const resume = require('../data/resume');
 const mongoose = require('mongoose');
 const { handler: errorHandler } = require('../middlewares/error');
 
@@ -10,10 +10,18 @@ exports.index = async (req, res, next) => {
 
   try {
 
- //   console.log(Resume.get('Alexander Friedrichsen'));
-
+    const bs = await Resume.find({user_name: 'Alexander Friedrichsen'}).exec();
+   // var results = [];
+  //  const result = JSON.stringify(bs[0]);
+   //console.log(bs);
+   //console.log("JSON file is...")
+  // console.log(resume)
+  // results.push(bs);
+  console.log(bs);
+   return res.render('index', bs);
+    //return next();
   } catch (error) {
-    return errorHandler(error, req, res);
-    //  return next(error);
+    //return errorHandler(error, req, res);
+      return next(error);
   }
 }
