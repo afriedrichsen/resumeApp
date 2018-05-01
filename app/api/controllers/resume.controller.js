@@ -12,7 +12,7 @@ exports.index = (req, res, next) => {
 
    Resume.find({user_name: 'Alexander Friedrichsen'}).exec().then((resumedata) => {
        const result = JSON.parse(JSON.stringify(resumedata[0]));
-       // console.log(result.socialmedia);
+       // Pass resume to view engine (pug template).
        res.render('index',result);
   });
 

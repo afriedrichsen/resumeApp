@@ -2,7 +2,7 @@ FROM node:alpine
 
 MAINTAINER Alex Friedrichsen <afriedrichsen@me.com>
 
-ENV NODE_ENV=production
+ENV NODE_ENV=production_docker
 ENV PORT=2112
 ENV MONGO_URI=http://localhost:27017/resume_dev
 
