@@ -2,12 +2,13 @@
 [![Build Status](https://travis-ci.org/afriedrichsen/resumeApp.svg?branch=master)](https://travis-ci.org/afriedrichsen/resumeApp)
 [![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
 ### Features
-* ES2017 Syntax for ExpressJS
+* ES2017 Syntax for Express
 * "Plain" JavaScript (i.e. no transpilers)
 * Docker build
+* Pug (formerly JADE) HTML templating engine
 * Mongoose (MongoDB) support
 * API documentation generation with apidoc
-* Mocha and Chai for unit and integration testing
+* Mocha, Chai and Sinon for unit and integration testing
 * ESLint as JS linter
 
 

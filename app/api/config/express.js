@@ -25,7 +25,10 @@ app.set('title', "" + (app.get('name')) + " — Resume");
 //app.use(express.logger('dev'));
 app.set('port', process.env.PORT || 2112);
 app.set('views', path.join(__dirname,'../../api/views'));
+
+//We use pug for our templating engine.
 app.set('view engine', 'pug');
+
 app.use(favicon(path.join(__dirname, '../../public/img/favicon.ico')));
 
 app.use(morgan(logs));

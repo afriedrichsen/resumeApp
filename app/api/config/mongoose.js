@@ -1,8 +1,25 @@
 const mongoose = require('mongoose');
 const { mongo, env } = require('./vars');
+const fs = require('fs');
 
 // set mongoose Promise to Bluebird
 mongoose.Promise = Promise;
+
+
+
+//These are some additional db options.
+const options = {
+    /*
+    "sslKey": fs.readFileSync('/etc/ssl/mongouat_key.pem'),
+    "sslCert": fs.readFileSync('/etc/ssl/mongouat.cer'),
+    "sslCa": fs.readFileSync('/etc/ssl/CAIntranet_chain.pem')
+    */
+    sslKey: fs.readFileSync(mongo.clientKey),
+    sslCert: fs.readFileSync(mongo.clientCert),
+    sslCa: fs.readFileSync(mongo.caFile),
+    keepAlive: 1,
+    useMongoClient: true,
+};
 
 // Exit application on error
 mongoose.connection.on('error', (err) => {
@@ -22,9 +39,6 @@ if (env === 'development') {
  * @public
  */
 exports.connect = () => {
-    mongoose.connect(mongo.uri, {
-        keepAlive: 1,
-        useMongoClient: true,
-    });
+    mongoose.connect(mongo.uri, options);
     return mongoose.connection;
 };
