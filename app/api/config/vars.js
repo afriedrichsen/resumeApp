@@ -23,8 +23,14 @@ module.exports = {
         caFile: process.env.MONGO_CLIENT_CA,
         clientCert: process.env.MONGO_CLIENT_CERT
         */
-        user: process.env.MONGO_USER,
-        pass: process.env.MONGO_PASS
+
+        user: process.env.NODE_ENV === 'test'
+            ? ''
+            : process.env.MONGO_USER,
+        pass: process.env.NODE_ENV === 'test'
+                 ? ''
+                 : process.env.MONGO_PASS,
+
     },
 
     logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
