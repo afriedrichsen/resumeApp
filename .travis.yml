@@ -13,7 +13,6 @@ services: mongodb
 env:
   global:
     - NODE_ENV=test
-    - DOCKER_FLAG=docker_production
     - MONGO_URI_TESTS=mongodb://localhost:27017/resume_prod
     - PORT=3000
     - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
