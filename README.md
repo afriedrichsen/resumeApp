@@ -21,16 +21,18 @@
 ### Installation
 
 #### Development
-1.) Clone the repository
+1.) Set up MongoDB, either locally or remote.
 
-2.) Copy .env.example to .env. Edit as necessary.
+2.) Clone the repository
+
+3.) Copy .env.example to .env. Edit as necessary.
 ```
 cd resumeApp/app/api
 cp .env.example .env
 nano .env
 ```
 
-3.) Run the application.
+4.) Run the application.
 ```
 cd ../../ (Assuming you followed Step 2, otherwise, change to project root).
 npm run development

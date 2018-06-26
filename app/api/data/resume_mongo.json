@@ -16,7 +16,7 @@
         , "place": "Minneapolis/Richfield, MN"
         , "subtitle": "Information Security Specialist - Officer"
         , "date": "October 2013–Present"
-        , "desc": "<ul><li>Use Python and SQL to provide automated reports using data sourced from several identity and access management tools. Served automated reports using Django.</li><li>Write and maintain custom .NET (C#) libraries used by core applications in the Bank's implementation of Office365/Microsoft Azure.</li><li>Designed and implemented a NoSQL (MongoDB)/ExpressJS solution for tracking application account metadata for all Bank applications.</li></ul>"
+        , "desc": "<ul><li>Designed and maintained an automated JavaScript (Node.js, React.js, Redux) application for provisioning user identities and access within Microsoft Azure.</li><li>Wrote and maintain custom .NET (C#) libraries used for integrating legacy security applications into Office365/Azure infrastructure.</li><li>Designed and implemented a NoSQL (MongoDB)/ExpressJS solution for tracking application account metadata for all Bank applications.</li></ul>"
         }
       , "teksystems": {
           "id": "teksystems"
@@ -32,9 +32,9 @@
         , "title": "<a href='https://www.stthomas.edu' target='_blank'>University of St. Thomas</a>"
         , "website": "https://www.stthomas.edu"
         , "place": "St. Paul, MN"
-        , "subtitle": "Student Technician"
+        , "subtitle": "Student Engineer"
         , "date": "September 2009-July 2013"
-        , "desc": "<ul><li>Assisted students, faculty and staff with both hardware and software administration tasks (account resets, mail/file quotas, etc.)</li><li>Assisted with the design of SSRS/SSIS packages to present data from a SQL database tracking loanable technology assets (laptops, projectors, etc.)</li><li>Contributed to the design of a self-service web application in Django/ReactJS for fetching reports on loanable technology assets.</li></ul>"
+        , "desc": "<ul><li>Assisted with the design of SSRS/SSIS packages to present data from a SQL database tracking loanable technology assets (laptops, projectors, etc.)</li><li>Contributed to the design of a self-service web application in Django/ReactJS for fetching reports on loanable technology assets.</li><li>Assisted students, faculty and staff with both hardware and software administration tasks (account resets, mail/file quotas, etc.)</li></ul>"
         }
       }
     }
@@ -63,11 +63,11 @@
       , "website": "https://github.com/afriedrichsen/node-o365-admin-service"
       , "desc": "An Node.js web application with designed for administering Microsoft Azure and its related services (specifically Office365, Intune and OneDrive). Leverages the Microsoft Graph API. Implements a UI built with <code>React</code>/<code>Redux.</code>"
       }
-      ,  "spark": {
-          "id": "spark"
-        , "label": "Coming soon"
-        , "title": "Twitter Sentiment Analysis Using Apache Flume and Spark"
-        , "desc": "An implementation of Apache Flume, Hive and Spark to use collect and analyze Twitter posts."
+      ,  "exchange-ps-service": {
+          "id": "exchange-ps-service"
+        , "title": "<a href='https://github.com/afriedrichsen/exchange-service'>Exchange Administration Service</a>"
+        , "website": "https://github.com/afriedrichsen/exchange-service"
+        , "desc": "A NodeJS web service for managing users, groups and contacts used by Exchange Online/Exchange 2016. Leverages a \"Stateful Command Proxy\" for running PowerShell commands."
       }
       , "resume": {
           "id": "resume"
@@ -84,7 +84,7 @@
        "sql": {"title": "SQL", "level": "95", "years":"6 years"}
       ,"python": {"title": "Python", "level": "95","years":"6 years"}
       , "Csharp": {"title": "C#", "level": "70","years":"4 years"}
-      , "node": {"title": "Node.js", "level": "65", "years":"3 years"}
+      , "node": {"title": "Node.js", "level": "65", "years":"5 years"}
       , "mongodb": {"title": "MongoDB", "level": "50", "years":"3 years"}
       , "vbscript": {"title": "VB.Net", "level": "70", "years":"4 years"}
       , "unix": {"title": "Unix/Bash", "level": "80", "years":"6 years"}

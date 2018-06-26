@@ -13,7 +13,7 @@ RUN apk add --update nodejs
 WORKDIR /app
 
 ADD . /app
-RUN node -v
+
 
 RUN cd /app; npm install --production
 

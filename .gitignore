@@ -55,7 +55,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+app/.env
 
 #IntelliJ
 .idea/
@@ -63,3 +63,6 @@ typings/
 .DS_Store
 
 build
+
+# Using YARN now
+package-lock.json

@@ -6,19 +6,24 @@ const fs = require('fs');
 mongoose.Promise = Promise;
 
 
-
 //These are some additional db options.
 const options = {
     /*
     "sslKey": fs.readFileSync('/etc/ssl/mongouat_key.pem'),
     "sslCert": fs.readFileSync('/etc/ssl/mongouat.cer'),
     "sslCa": fs.readFileSync('/etc/ssl/CAIntranet_chain.pem')
-    */
+
     sslKey: fs.readFileSync(mongo.clientKey),
     sslCert: fs.readFileSync(mongo.clientCert),
     sslCa: fs.readFileSync(mongo.caFile),
+    */
     keepAlive: 1,
     useMongoClient: true,
+    user: mongo.user,
+    pass: mongo.pass,
+    auth: {
+        authdb: 'admin'
+    }
 };
 
 // Exit application on error
