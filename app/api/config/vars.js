@@ -23,10 +23,8 @@ module.exports = {
         clientCert: process.env.MONGO_CLIENT_CERT
         */
 
-        user: process.env.NODE_ENV==='test'
-         ? '' : process.env.MONGO_USER,
-        pass: process.env.NODE_ENV==='test'
-            ? '' : process.env.MONGO_PASS
+        user: process.env.MONGO_USER,
+        pass: process.env.MONGO_PASS
 
     },
 
