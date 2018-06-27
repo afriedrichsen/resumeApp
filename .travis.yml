@@ -13,6 +13,7 @@ services: mongodb
 env:
   global:
     - NODE_ENV=test
+    - DOCKER_FLAG=docker_test
     - MONGO_URI_TESTS=mongodb://localhost:27017/resume_prod
     - MONGO_URI=mongodb://localhost:27017/resume_prod
     - MONGO_USER=mongo
