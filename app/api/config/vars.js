@@ -1,13 +1,10 @@
 const path = require('path');
 
 //import .env variables
-// Only import if we're not running in Docker (DOCKER_FLAG ENV variable is set).
-if(!(process.env.DOCKER_FLAG)) {
-    require('dotenv-safe').load({
+require('dotenv-safe').load({
         path: path.join(__dirname, '../../.env'),
         sample: path.join(__dirname, '../../.env.example'),
-    });
-}
+});
 
 module.exports = {
     env: process.env.NODE_ENV,
