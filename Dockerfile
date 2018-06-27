@@ -5,7 +5,6 @@ MAINTAINER Alex Friedrichsen <afriedrichsen@me.com>
 ENV NODE_ENV=production_docker
 ENV DOCKER_FLAG=true
 ENV PORT=2112
-ENV MONGO_URI=http://localhost:27017/resume_prod
 
 # Update
 RUN apk add --update nodejs
