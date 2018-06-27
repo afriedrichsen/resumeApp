@@ -16,6 +16,8 @@ env:
     - DOCKER_FLAG=docker_test
     - MONGO_URI_TESTS=mongodb://localhost:27017/resume_prod
     - MONGO_URI=mongodb://localhost:27017/resume_prod
+    - MONGO_USER=mongo
+    - MONGO_PASS=mongo
     - PORT=3000
     - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
     - JWT_EXPIRATION_MINUTES=15
