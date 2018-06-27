@@ -25,14 +25,14 @@ describe('Database Tests', () => {
     mongoose.connect(config.mongo.uri);
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', function() {
-        console.log('We are connected to test database!');
+    db.once('open', () => {
+        console.log('We are connected to the test database!');
         done();
     });
 });
 //After all tests are finished drop database and close connection
-after(function(done){
-    mongoose.connection.db.dropDatabase(function(){
+after((done) => {
+    mongoose.connection.db.dropDatabase(() => {
         mongoose.connection.close(done);
     });
 });

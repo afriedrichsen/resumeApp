@@ -2,12 +2,10 @@ const path = require('path');
 
 //import .env variables
 // Only import if we're not running in Docker (DOCKER_FLAG ENV variable is set).
-if (!(process.env.DOCKER_FLAG)) {
-    require('dotenv-safe').load({
+require('dotenv-safe').load({
         path: path.join(__dirname, '../../.env'),
         sample: path.join(__dirname, '../../.env.example'),
     });
-}
 
 
 module.exports = {
@@ -23,14 +21,10 @@ module.exports = {
         caFile: process.env.MONGO_CLIENT_CA,
         clientCert: process.env.MONGO_CLIENT_CERT
         */
-/*
-        user: process.env.NODE_ENV === 'test'
-            ? ''
-            : process.env.MONGO_USER,
-        pass: process.env.NODE_ENV === 'test'
-                 ? ''
-                 : process.env.MONGO_PASS,
-*/
+
+        user: process.env.MONGO_USER,
+        pass: process.env.MONGO_PASS
+
     },
 
     logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',

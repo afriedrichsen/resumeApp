@@ -19,11 +19,11 @@ const options = {
     */
     keepAlive: 1,
     useMongoClient: true,
-  //  user: mongo.user,
-  //  pass: mongo.pass,
-  //  auth: {
- //       authdb: 'admin'
-  //  }
+    user: mongo.user,
+    pass: mongo.pass,
+    auth: {
+        authdb: 'admin'
+    }
 };
 
 // Exit application on error
