@@ -10,7 +10,7 @@ const { logs } = require('./vars');
 const error = require('../middlewares/error');
 const path = require('path');
 const favicon = require('serve-favicon');
-const static = require('serve-static');
+//const static = require('serve-static');
 /**
  * Express instance
  * @public
