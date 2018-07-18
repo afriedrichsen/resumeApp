@@ -1,6 +1,4 @@
 node_modules
 npm-debug.log
 .env
-.env.example
-app/.env
-app/.env.example
+app/config/.env

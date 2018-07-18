@@ -5,7 +5,7 @@ require('dotenv-safe').load({
      //   path: path.join(__dirname, '../../.env'),
      //   sample: path.join(__dirname, '../../.env.example'),
           path: process.env.RESUME_APP_CONFIG_DIR + '/.env',
-          sample: path.join(__dirname, '../../.env.example')
+          sample: path.join(__dirname, '../../config/.env.example')
 
 });
 
