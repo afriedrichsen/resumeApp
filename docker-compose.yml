@@ -12,7 +12,21 @@ services:
         condition: on-failure
     ports:
       - "2112:2112"
+    volumes:
+      - /app/resume/config:/app/resume/config
+    links:
+      - resume-db
+    depends_on:
+      - resume-db
     networks:
       - friednet
+  resume-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - friednet
+    links:
+      - resume-app
 networks:
   friednet:
