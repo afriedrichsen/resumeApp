@@ -29,7 +29,7 @@ mongoose.Promise = Promise;
 
 
 
-if(env==='test')
+if(env==='test'|| env==='development')
 {
     options = {
         keepAlive: 1,
@@ -43,7 +43,7 @@ else {
         user: mongo.user,
         pass: mongo.pass,
         auth: {
-            authdb: 'admin'
+            authdb: 'resume_prod'
         }
     };
 
