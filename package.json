@@ -79,14 +79,10 @@
     "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-<<<<<<< HEAD
     "jest": "^23.2.0",
     "jest-cli": "^23.2.0",
     "micromatch": "^3.1.10",
-    "mocha": "^3.5.3",
-=======
     "mocha": "^5.2.0",
->>>>>>> 8dbb3e51856f8efcad065cf6be986707e6564d35
     "nodemon": "^1.13.3",
     "nyc": "^11.6.0",
     "should": "^13.0.1",
