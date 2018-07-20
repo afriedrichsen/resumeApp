@@ -1,9 +1,0 @@
-FROM mongo:latest
-
-WORKDIR /app
-
-ADD app/api/data/resume_mongo.json /app
-
-ADD app/scripts/load_mongo.sh /app
-
-RUN chmod +x /load_mongo.sh && ./load_mongo.sh
