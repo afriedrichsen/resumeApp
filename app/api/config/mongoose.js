@@ -6,10 +6,11 @@ const fs = require('fs');
 mongoose.Promise = Promise;
 
 
-//These are some additional db options.
+// These are some additional db options.
+let options;
 
-//const options = {
-    /*
+// const options = {
+/*
     "sslKey": fs.readFileSync('/etc/ssl/mongouat_key.pem'),
     "sslCert": fs.readFileSync('/etc/ssl/mongouat.cer'),
     "sslCa": fs.readFileSync('/etc/ssl/CAIntranet_chain.pem')
@@ -25,39 +26,35 @@ mongoose.Promise = Promise;
 //    auth: {
 //        authdb: 'admin'
 //    }
-//};
+// };
 
 
-
-if(env==='test'|| env==='development')
-{
-    options = {
-        keepAlive: 1,
-        useMongoClient: true
-    };
-}
-else {
-    options = {
-        keepAlive: 1,
-        useMongoClient: true,
-        user: mongo.user,
-        pass: mongo.pass,
-        auth: {
-            authdb: 'resume_prod'
-        }
-    };
-
+if (env === 'test' || env === 'development') {
+  options = {
+    keepAlive: 1,
+    // useMongoClient: true,
+  };
+} else {
+  options = {
+    keepAlive: 1,
+    // useMongoClient: true,
+    user: mongo.user,
+    pass: mongo.pass,
+    auth: {
+      authdb: 'resume_prod',
+    },
+  };
 }
 
 // Exit application on error
 mongoose.connection.on('error', (err) => {
-    console.error(`MongoDB connection error: ${err}`);
-process.exit(-1);
+  console.error(`MongoDB connection error: ${err}`);
+  process.exit(-1);
 });
 
 // print mongoose logs in dev env
 if (env === 'development') {
-    mongoose.set('debug', true);
+  mongoose.set('debug', true);
 }
 
 /**
@@ -67,6 +64,6 @@ if (env === 'development') {
  * @public
  */
 exports.connect = () => {
-    mongoose.connect(mongo.uri, options);
-    return mongoose.connection;
+  mongoose.connect(mongo.uri, options);
+  return mongoose.connection;
 };

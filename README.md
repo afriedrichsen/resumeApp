@@ -10,6 +10,7 @@
 * API documentation generation with apidoc
 * Mocha, Chai and Sinon for unit and integration testing
 * ESLint as JS linter
+* Cloud Deployment support (AWS and Azure).
 
 
 ### Prerequisites

@@ -1,4 +1,4 @@
-//const resume = require('../data/resume');
+// const resume = require('../data/resume');
 const mongoose = require('mongoose');
 const { handler: errorHandler } = require('../middlewares/error');
 
@@ -7,16 +7,13 @@ const { handler: errorHandler } = require('../middlewares/error');
 const Resume = require('../models/resume.model');
 
 exports.index = (req, res, next) => {
-
   try {
-
-   Resume.find({user_name: 'Alexander Friedrichsen'}).exec().then((resumedata) => {
-       const result = JSON.parse(JSON.stringify({data: resumedata[0]}));
-       // Pass resume to view engine (pug template).
-       res.render('index',result.data);
-  });
-
+    Resume.find({ user_name: 'Alexander Friedrichsen' }).exec().then((resumedata) => {
+      const result = JSON.parse(JSON.stringify({ data: resumedata[0] }));
+      // Pass resume to view engine (pug template).
+      res.render('index', result.data);
+    });
   } catch (exception) {
-
+    console.log(exception);
   }
-}
+};
