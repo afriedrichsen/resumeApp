@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   resume-app:
-    image: afriedrichsen/core-projects:resumejs
+    image: afriedrichsen/resume-app:latest
     deploy:
       replicas: 4
       resources:
@@ -12,21 +12,16 @@ services:
         condition: on-failure
     ports:
       - "2112:2112"
-    volumes:
-      - /app/resume/config:/app/resume/config
-    links:
-      - resume-db
-    depends_on:
-      - resume-db
-    networks:
-      - friednet
-  resume-db:
-    image: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - friednet
-    links:
-      - resume-app
-networks:
-  friednet:
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
+      - JWT_EXPIRATION_MINUTES=15
+      - MONGO_URI=mongodb://ds141641.mlab.com:41641/resume_prod
+      - MONGO_USER=app_reader
+      - MONGO_PASS=ThePlaybookGameSucks2019
+    # volumes:
+    #   - /app/resume/config:/app/resume/config
+    # links:
+    #   - resume-db
+    # depends_on:
+    #  - resume-db

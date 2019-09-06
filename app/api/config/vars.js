@@ -1,13 +1,15 @@
 const path = require('path');
 
 // import .env variables
-require('dotenv-safe').load({
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv-safe').load({
   //   path: path.join(__dirname, '../../.env'),
   //   sample: path.join(__dirname, '../../.env.example'),
-  path: path.join(__dirname, '../../config/.env'),
-  sample: path.join(__dirname, '../../config/.env.example'),
+    path: path.join(__dirname, '../../config/.env'),
+    sample: path.join(__dirname, '../../config/.env.example'),
 
-});
+  });
+}
 
 
 module.exports = {
