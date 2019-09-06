@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { mongo, env } = require('./vars');
-const fs = require('fs');
+// const fs = require('fs');
 
 // set mongoose Promise to Bluebird
 mongoose.Promise = Promise;
@@ -33,10 +33,12 @@ if (env === 'test' || env === 'development') {
   options = {
     keepAlive: 1,
     // useMongoClient: true,
+    useNewUrlParser: true,
   };
 } else {
   options = {
     keepAlive: 1,
+    useNewUrlParser: true,
     // useMongoClient: true,
     user: mongo.user,
     pass: mongo.pass,
