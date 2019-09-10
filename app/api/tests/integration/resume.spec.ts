@@ -2,12 +2,16 @@ import request from 'supertest'
 // const httpStatus = require('http-status');
 // import { expect } from 'chai'
 // import chai from 'chai'
+import fs from 'fs'
 // const sinon = require('sinon');
 // const bcrypt = require('bcryptjs');
 // const { some, omitBy, isNil } = require('lodash');
 import app from '../../config/koa'
 // import { DbConnection } from 'app/api/models';
+// import mongoose from 'mongoose'
+import { MongoClient } from 'mongodb'
 // import { app } from '../../../index'
+import data from '../testdata/resume_mongo_initial.json'
 
 import { MongoMemoryServer } from 'mongodb-memory-server'
 
@@ -52,12 +56,17 @@ describe ('Resume API', async () => {
 
 describe('Resume API', () => {
     let mongod: MongoMemoryServer
-    beforeAll(async () => {
+    beforeAll(async (done) => {
         mongod = new MongoMemoryServer({ instance: {
             port: 27017,
             dbName: 'resume_data'
         },
         })
+        await mongod._startUpInstance()
+        const conn = await MongoClient.connect((await mongod.getConnectionString()), { useNewUrlParser: true, useUnifiedTopology: true })
+        const database = conn.db('resume_data')
+        const collection = database.collection('resume_data')
+        await collection.insertOne(data)
     })
   it('should get resume index page', async () => {
         const response = await request(app.callback()).get('/')
@@ -71,7 +80,7 @@ describe('Resume API', () => {
       await app.context.db.mongoose.disconnect()
   })
 
-  /*afterAll(async () => {
+  afterAll(async () => {
       await mongod.stop()
-  })*/
+  })
 })

@@ -129,7 +129,6 @@
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
-    "preset": "@shelf/jest-mongodb",
     "testRegex": "(/tests/.*(\\.|/)spec)\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",

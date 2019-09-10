@@ -23,10 +23,6 @@ export default class ResumeController extends ControllerBase {
     try {
       // console.log('Index controller!! Called from index route!')
       const resume = await this.db.Resume.find({ user_name: 'Alexander Friedrichsen' }).exec()
-      if (!resume) {
-        console.log('No results found!')
-        return
-      }
       const result = JSON.parse(JSON.stringify({ data: resume[0] }))
       return this.renderView('index', result.data)
     } catch (exception) {
