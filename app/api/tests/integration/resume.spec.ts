@@ -1,12 +1,11 @@
 import request from 'supertest'
 // const httpStatus = require('http-status');
 // import { expect } from 'chai'
-import chai from 'chai'
+// import chai from 'chai'
 // const sinon = require('sinon');
 // const bcrypt = require('bcryptjs');
 // const { some, omitBy, isNil } = require('lodash');
 import app from '../../config/koa'
-import express from 'express'
 // import { app } from '../../../index'
 
 // const testApp = app()
@@ -49,12 +48,12 @@ describe ('Resume API', async () => {
 
 
 describe('Resume API', () => {
-  it('should get resume index page', async () => {
-    const response = await request(app.callback()).get('/')
-    expect(response).toBeDefined()
-    expect(response.status).toBe(200)
-    // chai.expect(response.status).equals(200)
-    // done()
-    // done()
+  it('should get resume index page', async (done) => {
+        const response = await request(app.callback()).get('/')
+        expect(response).toBeDefined()
+        return done()
+  })
+  afterEach(async () => {
+      await app.context.db.mongoose.disconnect()
   })
 })
