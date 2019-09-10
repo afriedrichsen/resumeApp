@@ -28,7 +28,7 @@ script: yarn validate
 before_script:
   # - greenkeeper-lockfile-update
   - npm install
-  - npm run build:v2
+#  - npm run build:v2
 
 # after_script: greenkeeper-lockfile-upload
 
