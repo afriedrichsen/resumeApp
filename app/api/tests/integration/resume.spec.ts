@@ -6,7 +6,10 @@ import request from 'supertest'
 // const bcrypt = require('bcryptjs');
 // const { some, omitBy, isNil } = require('lodash');
 import app from '../../config/koa'
+// import { DbConnection } from 'app/api/models';
 // import { app } from '../../../index'
+
+import { MongoMemoryServer } from 'mongodb-memory-server'
 
 // const testApp = app()
 
@@ -48,6 +51,14 @@ describe ('Resume API', async () => {
 
 
 describe('Resume API', () => {
+    let mongod: MongoMemoryServer
+    beforeAll(async () => {
+        mongod = new MongoMemoryServer({ instance: {
+            port: 27017,
+            dbName: 'resume_data'
+        },
+        })
+    })
   it('should get resume index page', async () => {
         const response = await request(app.callback()).get('/')
         expect(response).toBeDefined()
@@ -59,4 +70,8 @@ describe('Resume API', () => {
   afterEach(async () => {
       await app.context.db.mongoose.disconnect()
   })
+
+  /*afterAll(async () => {
+      await mongod.stop()
+  })*/
 })
