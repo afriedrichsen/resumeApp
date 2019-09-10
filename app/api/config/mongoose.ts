@@ -1,11 +1,12 @@
 // const mongoose = require('mongoose');
-import mongoose, { ConnectionOptions } from 'mongoose'
+import mongoose from 'mongoose'
 import Config from './vars'
+import setupModels from '../models'
 
 // set mongoose Promise to Bluebird
 mongoose.Promise = Promise
 
-
+/*
 // These are some additional db options.
 let options: ConnectionOptions
 
@@ -39,13 +40,6 @@ mongoose.connection.on('error', (err: any) => {
 if (Config.env === 'development') {
   mongoose.set('debug', true)
 }
-
-/**
- * Connect to mongo db
- *
- * @returns {object} Mongoose connection
- * @public
- */
 export const connect = async () => {
   if (!Config.mongo.uri) {
     console.log('No database connection information provided!')
@@ -61,4 +55,38 @@ export const connect = async () => {
     console.log(exception)
     return
   }
+}*/
+// These are some additional db options.
+let options: mongoose.ConnectionOptions
+
+
+if (Config.env === 'test' || Config.env === 'development') {
+  options = {
+    keepAlive: true,
+    useNewUrlParser: true,
+  }
+} else {
+  options = {
+    keepAlive: true,
+    useNewUrlParser: true,
+    user: Config.mongo.user || '',
+    pass: Config.mongo.pass || '',
+    auth: {
+      // authdb: 'resume_prod',
+      user: Config.mongo.user || '',
+      password: Config.mongo.pass || '',
+    },
+  }
 }
+
+const m = new mongoose.Mongoose()
+
+if (!Config.mongo.uri) {
+  console.log('No connection string for database')
+}
+
+m.connect(Config.mongo.uri || 'mongodb://localhost:27017/resume_data', options)
+
+const dbConnection = setupModels(m)
+
+export default dbConnection
