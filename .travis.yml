@@ -1,5 +1,5 @@
 language: node_js
-node_js: '10'
+node_js: "10"
 
 git:
   depth: 3
@@ -25,7 +25,11 @@ env:
 script: yarn validate
 
 before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
+before_script:
+  - greenkeeper-lockfile-update
+  - npm install
+  - npm run build:v2
+
 after_script: greenkeeper-lockfile-upload
 
 # deploy:
