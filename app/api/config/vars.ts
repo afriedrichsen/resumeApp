@@ -1,20 +1,30 @@
-const path = require('path');
+import path from 'path'
 
 // import .env variables
 if (process.env.NODE_ENV === 'development') {
   require('dotenv-safe').load({
-  //   path: path.join(__dirname, '../../.env'),
-  //   sample: path.join(__dirname, '../../.env.example'),
     path: path.join(__dirname, '../../config/.env'),
     sample: path.join(__dirname, '../../config/.env.example'),
 
-  });
+  })
 }
 
 
-module.exports = {
-  env: process.env.NODE_ENV,
-  port: process.env.PORT,
+interface ResumeAppConfiguration {
+  env: string
+  port: string
+  mongo: {
+    uri: string | undefined
+    user: string | undefined
+    pass: string | undefined
+  },
+  logs: string
+}
+
+
+const Config: ResumeAppConfiguration = {
+  env: process.env.NODE_ENV || 'dev',
+  port: process.env.PORT || '1337',
 
   mongo: {
     uri: process.env.NODE_ENV === 'test'
@@ -32,4 +42,6 @@ module.exports = {
   },
 
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
-};
+}
+
+export default Config

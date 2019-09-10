@@ -9,7 +9,14 @@
     "test": "test"
   },
   "dependencies": {
-    "@types/express": "^4.17.1",
+    "@types/compression": "^1.0.1",
+    "@types/cors": "^2.8.6",
+    "@types/helmet": "0.0.44",
+    "@types/method-override": "0.0.31",
+    "@types/mongodb": "^3.3.1",
+    "@types/mongoose": "^5.5.17",
+    "@types/morgan": "^1.7.37",
+    "@types/serve-favicon": "^2.2.31",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.1",
     "chalk": "^2.3.2",
@@ -39,6 +46,8 @@
     "serve-favicon": "^2.5.0",
     "serve-static": "^1.13.2",
     "tslint": "^5.19.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
     "typescript": "^3.6.2",
     "uglify-js": "^3.3.20",
     "which": "^1.x"
@@ -69,14 +78,12 @@
       "node"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.7.4",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
-    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.10.0",
