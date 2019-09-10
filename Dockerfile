@@ -1,4 +1,6 @@
 FROM mhart/alpine-node:latest
+# FROM node:latest
+# FROM node:12.10.0-buster-slim
 
 ENV NODE_ENV=production_docker
 ENV DOCKER_FLAG=true

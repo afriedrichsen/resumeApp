@@ -1,15 +1,7 @@
-version: "3.4"
+version: "2"
 services:
   resume-app:
     image: afriedrichsen/resume-app:latest
-    deploy:
-      replicas: 4
-      resources:
-        limits:
-          cpus: "0.25"
-          memory: "100M"
-      restart_policy:
-        condition: on-failure
     ports:
       - "2112:2112"
     environment:
