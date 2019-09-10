@@ -110,7 +110,8 @@
     "lint:watch": "yarn lint -- --watch",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
-    "start": "node ./app/index.js"
+    "start": "node ./app/index.js",
+    "build:v2": "tsc"
   },
   "repository": {
     "type": "git",

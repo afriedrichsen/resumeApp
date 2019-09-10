@@ -65,7 +65,7 @@ app/.env
 .DS_Store
 
 build
-dist
+dist/
 
 # Using YARN now
 #package-lock.json
