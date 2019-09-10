@@ -48,6 +48,7 @@
     "which": "^1.x"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.0",
     "@types/chai": "^4.2.2",
     "@types/compression": "^1.0.1",
     "@types/cors": "^2.8.6",
@@ -79,6 +80,7 @@
     "jest-cli": "^25.0.0",
     "micromatch": "^3.1.10",
     "mocha": "^5.2.0",
+    "mongodb-memory-server": "^5.2.2",
     "nodemon": "^1.13.3",
     "nyc": "^14.1.1",
     "should": "^13.0.1",
@@ -127,6 +129,7 @@
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
+    "preset": "@shelf/jest-mongodb",
     "testRegex": "(/tests/.*(\\.|/)spec)\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
