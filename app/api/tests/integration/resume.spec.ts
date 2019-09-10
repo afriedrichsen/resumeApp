@@ -48,10 +48,10 @@ describe ('Resume API', async () => {
 
 
 describe('Resume API', () => {
-  it('should get resume index page', async (done) => {
+  it('should get resume index page', async () => {
         const response = await request(app.callback()).get('/')
         expect(response).toBeDefined()
-        return done()
+        // return done()
   })
   afterEach(async () => {
       await app.context.db.mongoose.disconnect()
