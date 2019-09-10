@@ -27,28 +27,4 @@ export default abstract class ControllerBase {
         this.renderCalled = true
         await this.context.render(targetView, variables)
     }
-
-    renderFailure(statusCode: number, errorMessage: string, result = {}, changeToken: number | undefined = undefined) {
-        const resultObject: Result = {
-            success: false,
-            errorMessage: errorMessage,
-            results: [result]
-        }
-
-        if (changeToken) {
-            resultObject.changeToken = changeToken
-        }
-
-        this.renderJson(statusCode, resultObject)
-    }
-
-    renderJson(status: number, data: { [key: string]: any }) {
-        if (this.renderCalled) {
-            throw Error('Cannot call render twice for one request')
-        }
-
-        this.context.status = status
-        this.context.body = data
-        this.renderCalled = true
-    }
 }
