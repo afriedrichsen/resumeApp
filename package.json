@@ -48,6 +48,7 @@
     "which": "^1.x"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.0",
     "@types/chai": "^4.2.2",
     "@types/compression": "^1.0.1",
     "@types/cors": "^2.8.6",
@@ -79,6 +80,7 @@
     "jest-cli": "^25.0.0",
     "micromatch": "^3.1.10",
     "mocha": "^5.2.0",
+    "mongodb-memory-server": "^5.2.2",
     "nodemon": "^1.13.3",
     "nyc": "^14.1.1",
     "should": "^13.0.1",
@@ -94,11 +96,11 @@
   },
   "scripts": {
     "test:old": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text jest --runInBand --detectOpenHandles",
-    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --collectCoverage",
     "validate": "yarn lint && yarn test",
-    "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint": "tslint **/*.ts --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint:watch": "yarn lint -- --watch",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
@@ -120,13 +122,14 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "app/**/*.{js,jsx,mjs}"
+      "app/api/**/*.{js,jsx,mjs,ts,tsx}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost:2112",
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
+    "preset": "@shelf/jest-mongodb",
     "testRegex": "(/tests/.*(\\.|/)spec)\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
