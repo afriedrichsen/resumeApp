@@ -1,10 +1,16 @@
-const request = require('supertest');
+import request from 'supertest'
 // const httpStatus = require('http-status');
-const { expect } = require('chai');
+// import { expect } from 'chai'
+// import chai from 'chai'
 // const sinon = require('sinon');
 // const bcrypt = require('bcryptjs');
 // const { some, omitBy, isNil } = require('lodash');
-const app = require('../../../index');
+import app from '../../config/koa'
+// import { app } from '../../../index'
+
+// const testApp = app()
+
+// testApp.use('/', routes)
 
 // Integration test for resume Express API follows.
 
@@ -41,10 +47,16 @@ describe ('Resume API', async () => {
 */
 
 
-describe('Resume API', async () => {
-  test('it should get resume index page', async (done) => {
-    const response = await request(app).get('/');
-    expect(response.statusCode).toBe(200);
-    done();
-  });
-});
+describe('Resume API', () => {
+  it('should get resume index page', async () => {
+        const response = await request(app.callback()).get('/')
+        expect(response).toBeDefined()
+        expect(response.status).toBe(200)
+  })
+  /*it('should return no data when search params are not found in db', async () => {
+
+  })*/
+  afterEach(async () => {
+      await app.context.db.mongoose.disconnect()
+  })
+})

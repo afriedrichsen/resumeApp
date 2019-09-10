@@ -10,9 +10,10 @@ WORKDIR /app
 RUN mkdir -p /app/app/public
 ADD ./dist/ /app/app
 ADD package.json /app
-ADD package-lock.json /app
+ADD yarn.lock /app
 
-RUN cd /app; npm install --production
+# RUN cd /app; npm install --production
+RUN cd /app; yarn install --production
 
 EXPOSE 2112
 
