@@ -1,20 +1,11 @@
-version: "3.4"
+version: "2"
 services:
   resume-app:
     image: afriedrichsen/resume-app:latest
-    deploy:
-      replicas: 4
-      resources:
-        limits:
-          cpus: "0.25"
-          memory: "100M"
-      restart_policy:
-        condition: on-failure
     ports:
       - "2112:2112"
     environment:
       - NODE_ENV=production
-      - PORT=2112
       - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
       - JWT_EXPIRATION_MINUTES=15
       - MONGO_URI=mongodb://ds141641.mlab.com:41641/resume_prod

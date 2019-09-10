@@ -1,19 +1,16 @@
-FROM node:alpine
+FROM mhart/alpine-node:latest
 
-MAINTAINER Alex Friedrichsen <afriedrichsen@me.com>
-
-ENV NODE_ENV=production_docker
+# ENV NODE_ENV=production
 ENV DOCKER_FLAG=true
-ENV PORT=2112
+# ENV PORT=2112
 ENV RESUME_APP_CONFIG_DIR=/deploy/resume/config
-
-# Update
-RUN apk add --update nodejs
 
 WORKDIR /app
 
-ADD . /app
-
+RUN mkdir -p /app/app/public
+ADD ./dist/ /app/app
+ADD package.json /app
+ADD package-lock.json /app
 
 RUN cd /app; npm install --production
 
