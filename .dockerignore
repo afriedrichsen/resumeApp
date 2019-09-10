@@ -1,6 +1,9 @@
 node_modules
 npm-debug.log
 .env
-app/config/.env
+# app/config/.env
+app
 coverage
+.ebextensions
+.elasticbeanstalk
 .nyc_output

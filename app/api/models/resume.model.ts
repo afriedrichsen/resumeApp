@@ -24,4 +24,4 @@ const ResumeSchema = new Schema({
 /**
  * Export schema for use.
  */
-module.exports = mongoose.model('resume_data', ResumeSchema)
+export default mongoose.model('resume_data', ResumeSchema)

@@ -23,13 +23,13 @@ interface ResumeAppConfiguration {
 
 
 const Config: ResumeAppConfiguration = {
-  env: process.env.NODE_ENV || 'dev',
+  env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || '1337',
 
   mongo: {
     uri: process.env.NODE_ENV === 'test'
       ? process.env.MONGO_URI_TESTS
-      : process.env.MONGO_URI,
+      : process.env.MONGO_URI || 'mongodb://localhost:27017/resume_data',
     /*
         clientKey: process.env.MONGO_CLIENT_KEY,
         caFile: process.env.MONGO_CLIENT_CA,

@@ -1,7 +1,7 @@
 // const httpStatus = require('http-status');
 import httpStatus from 'http-status'
 import expressValidation from 'express-validation'
-const APIError = require('../utils/APIError')
+import APIError from '../utils/APIError'
 // const { env } = require('../config/vars')
 import Config from '../config/vars'
 
@@ -12,8 +12,8 @@ import Config from '../config/vars'
 export const handler = (err: any, req: any, res: any, next: any) => {
     const response = {
         code: err.status,
-        // message: err.message || httpStatus[err.status],
         message: err.message || httpStatus['500'],
+        // message: err.message,
         errors: err.errors,
         stack: err.stack,
     }
@@ -23,6 +23,7 @@ export const handler = (err: any, req: any, res: any, next: any) => {
     }
 
     res.status(err.status)
+    // console.log(response)
     res.json(response)
     res.end()
 }

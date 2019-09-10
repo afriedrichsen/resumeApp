@@ -5,9 +5,11 @@ import compress from 'compression'
 import methodOverride from 'method-override'
 import cors from 'cors'
 import helmet from 'helmet'
-const routes = require('../routes')
+// const routes = require('../routes')
+import routes from '../routes'
 import Config from './vars'
-const error = require('../middlewares/error')
+// const error = require('../middlewares/error')
+import * as error from '../middlewares/error'
 import path from 'path'
 import favicon from 'serve-favicon'
 /**

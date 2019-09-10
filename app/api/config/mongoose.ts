@@ -46,17 +46,19 @@ if (Config.env === 'development') {
  * @returns {object} Mongoose connection
  * @public
  */
-export  default (async () => {
+export const connect = async () => {
   if (!Config.mongo.uri) {
     console.log('No database connection information provided!')
     return
   }
   try {
+  console.log('Establishing database connection to ' + Config.mongo.uri + '...')
   await mongoose.connect(Config.mongo.uri, options)
-  return mongoose.connection
+  console.log('Database Connection successful!')
+  // return mongoose.connection
   } catch (exception) {
     console.log('Database connection ERROR!!!!')
     console.log(exception)
     return
   }
-})
+}

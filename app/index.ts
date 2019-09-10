@@ -10,7 +10,13 @@ import * as mongoose from './api/config/mongoose'
 
 // open mongoose connection
 
-// mongoose.connect()
+mongoose.connect().then(() => {
+    try {
+        app.listen(Config.default.port, () => console.info(`server started on port ${Config.default.port} (${Config.default.env})`))
+    } catch (exception) {
+        console.log(exception)
+        return exception
+    }
+})
 
 // listen to requests
-app.listen(Config.default.port, () => console.info(`server started on port ${Config.default.port} (${Config.default.env})`))
