@@ -28,7 +28,7 @@ const Config: ResumeAppConfiguration = {
 
   mongo: {
     uri: process.env.NODE_ENV === 'test'
-      ? process.env.MONGO_URI_TESTS
+      ? process.env.MONGO_URI_TESTS || 'mongodb://localhost:27017/resume_data'
       : process.env.MONGO_URI || 'mongodb://localhost:27017/resume_data',
     /*
         clientKey: process.env.MONGO_CLIENT_KEY,
