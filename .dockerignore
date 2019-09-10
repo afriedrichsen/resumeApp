@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 .env
 app/config/.env
+coverage
+.nyc_output
