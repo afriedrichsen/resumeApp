@@ -6,7 +6,14 @@ import chai from 'chai'
 // const bcrypt = require('bcryptjs');
 // const { some, omitBy, isNil } = require('lodash');
 import app from '../../config/express'
+import express from 'express'
 // import { app } from '../../../index'
+
+const testApp = express()
+
+import routes from '../../routes'
+
+testApp.use('/', routes)
 
 // Integration test for resume Express API follows.
 
@@ -43,10 +50,12 @@ describe ('Resume API', async () => {
 */
 
 
-describe('Resume API', async () => {
-  test('it should get resume index page', async (done) => {
+describe('Resume API', () => {
+  test('it should get resume index page', async () => {
     const response = await request(app).get('/')
-    chai.expect(response.statusCode).toBe(200)
-    done()
+    expect(response).toBeDefined()
+    expect(response.status).toBe(200)
+    // chai.expect(response.status).equals(200)
+    // done()
   })
 })
