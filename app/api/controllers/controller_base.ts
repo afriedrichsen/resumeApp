@@ -24,7 +24,22 @@ export default abstract class ControllerBase {
     async renderView(targetView: string, variables?: any) {
         // this.renderCalled = true
         this.context.status = 200
+        this.renderCalled = true
         await this.context.render(targetView, variables)
+    }
+
+    renderFailure(statusCode: number, errorMessage: string, result = {}, changeToken: number | undefined = undefined) {
+        const resultObject: Result = {
+            success: false,
+            errorMessage: errorMessage,
+            results: [result]
+        }
+
+        if (changeToken) {
+            resultObject.changeToken = changeToken
+        }
+
+        this.renderJson(statusCode, resultObject)
     }
 
     renderJson(status: number, data: { [key: string]: any }) {

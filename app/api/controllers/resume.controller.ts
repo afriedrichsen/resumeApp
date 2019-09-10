@@ -21,7 +21,7 @@ import ControllerBase from './controller_base'
 export default class ResumeController extends ControllerBase {
   public async index() {
     try {
-      console.log('Index controller!! Called from index route!')
+      // console.log('Index controller!! Called from index route!')
       const resume = await this.db.Resume.find({ user_name: 'Alexander Friedrichsen' }).exec()
       if (!resume) {
         console.log('No results found!')
