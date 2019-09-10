@@ -94,7 +94,7 @@
   },
   "scripts": {
     "test:old": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text jest --runInBand --detectOpenHandles",
-    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --collectCoverage",
     "validate": "yarn lint && yarn test",
     "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
@@ -120,7 +120,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "app/**/*.{js,jsx,mjs}"
+      "app/api/**/*.{js,jsx,mjs,ts,tsx}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost:2112",
