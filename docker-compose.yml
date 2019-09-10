@@ -17,6 +17,6 @@ services:
       - PORT=2112
       - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
       - JWT_EXPIRATION_MINUTES=15
-      - MONGO_URI=mongodb://ds141641.mlab.com:41641/resume_prod
+      - MONGO_URI=mongodb://localhost:27017/resume_data
       - MONGO_USER=app_reader
       - MONGO_PASS=ThePlaybookGameSucks2019
