@@ -28,7 +28,6 @@ import database from './mongoose'
 import Config from './vars'
 import EnhancedRouter from '../routes/enhanced_router'
 import { setupRoutes } from '../routes'
-// import Pug from 'koa-pug'
 
 const app = new Koa()
 
