@@ -3,7 +3,7 @@ services:
   resume-app:
     image: afriedrichsen/resume-app:latest
     deploy:
-      replicas: 4
+      replicas: 1
       resources:
         limits:
           cpus: "0.25"
@@ -11,12 +11,23 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "2112:2112"
+      - "2112"
     environment:
       - NODE_ENV=production
       - PORT=2112
       - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5yymUBSs6es3qHoFpGkec75RCeBb8cpKauGefw5qy4
       - JWT_EXPIRATION_MINUTES=15
-      - MONGO_URI=mongodb://localhost:27017/resume_data
+      - MONGO_URI=mongodb://mongo-dev:27017/resume_data
       - MONGO_USER=app_reader
-      - MONGO_PASS=ThePlaybookGameSucks2019
+      - MONGO_PASS=password
+  mongo-dev:
+    image: mongo
+    restart: always
+    ports:
+      - "37017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: resume_data
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes: 
+      - ./app/scripts/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
