@@ -61,11 +61,13 @@ functions:
       - httpApi:
           path: /resume
           method: get
+    environment:
+      RESUME_DB_REGION: "us-east-2"
   # world:
   #   handler: bin/world
   #   events:
   #     - httpApi:
-  #         path: /world
+  #         path: /download
   #         method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
