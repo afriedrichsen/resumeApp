@@ -2,14 +2,6 @@
 #
 # This file is the main config file for your service.
 # It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
 
 service: resume-server
 # app and org for use with dashboard.serverless.com
@@ -20,14 +12,30 @@ service: resume-server
 # Check out our docs for more details
 frameworkVersion: '2'
 
+# Custom properties
+# Behaviors for different environments.
+custom:
+  dev:
+    Stack: ${env:DEV_USER, 'dev'}
+    LogLevel: debug
+    Name: ${env:DEV_USER, 'dev'}
+    EnvironmentType: dev
+  vars:
+    c1env: ${env:DD_ENV_TAG, ${opt:stage, 'local-dev'}}
+    env-name: ${self:custom.${self:provider.stage}.Name}
+    shared-stack-name: ${self:custom.${self:provider.stage}.Stack}
+    log-level: ${self:custom.${self:provider.stage}.LogLevel}
+    EnvironmentType: ${self:custom.${self:provider.stage}.EnvironmentType}
+
 provider:
   name: aws
   runtime: go1.x
   lambdaHashingVersion: 20201221
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  iam:
+    role: ServiceFunctionRole
+  timeout: 10
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region 'us-east-2'}
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -63,8 +71,8 @@ functions:
           method: get
     environment:
       RESUME_DB_REGION: "us-east-2"
-  # world:
-  #   handler: bin/world
+  # downloader:
+  #   handler: bin/downloader
   #   events:
   #     - httpApi:
   #         path: /download
@@ -121,3 +129,30 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+resources:
+  Resources:
+    ServiceFunctionRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: ${self:custom.${self:provider.stage}.Name}-LambdaExecutionRole
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: ${self:custom.${self:provider.stage}.Name}-LambdaExecutionPolicy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action: 
+                    - s3:*
+                  Resource: "*"
+                - Effect: Allow
+                  Action: 
+                    - dynamodb:*
+                  Resource: "*"
