@@ -5,6 +5,8 @@ import (
 	"context"
 	"encoding/json"
 
+	"github.com/resumeApp/resume_server/server/util"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
@@ -19,9 +21,18 @@ type Response events.APIGatewayProxyResponse
 func Handler(ctx context.Context) (Response, error) {
 	var buf bytes.Buffer
 
-	body, err := json.Marshal(map[string]interface{}{
-		"message": "Go Serverless v1.0! Your function executed successfully!",
-	})
+	client := util.DynamoClient{}
+
+	result, clientErr := client.GetResumeData()
+
+	if clientErr != nil {
+		return Response{StatusCode: 500}, clientErr
+	}
+
+	// body, err := json.Marshal(map[string]interface{}{
+	// 	"message": "Go Serverless v1.0! Your function executed successfully!",
+	// })
+	body, err := json.Marshal(result)
 	if err != nil {
 		return Response{StatusCode: 404}, err
 	}
@@ -33,7 +44,7 @@ func Handler(ctx context.Context) (Response, error) {
 		Body:            buf.String(),
 		Headers: map[string]string{
 			"Content-Type":           "application/json",
-			"X-MyCompany-Func-Reply": "hello-handler",
+			"X-MyCompany-Func-Reply": "resume-server-handler",
 		},
 	}
 
