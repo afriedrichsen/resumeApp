@@ -75,3 +75,6 @@ dist/
 !.elasticbeanstalk/*.global.yml
 
 rancher.yaml
+
+**/bin/
+**/.serverless/

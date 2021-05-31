@@ -82,6 +82,7 @@
     "mongodb-memory-server": "^5.2.2",
     "nodemon": "^1.13.3",
     "nyc": "^14.1.1",
+    "serverless-offline": "^7.0.0",
     "should": "^13.0.1",
     "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0",
