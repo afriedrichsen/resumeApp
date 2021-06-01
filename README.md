@@ -1,4 +1,4 @@
-# Resume Node JS Application
+# Resume - Full-Stack Application
 
 [![Build Status](https://travis-ci.org/afriedrichsen/resumeApp.svg?branch=master)](https://travis-ci.org/afriedrichsen/resumeApp)
 [![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
@@ -9,7 +9,7 @@
 - TypeScript for type safety and cleaner JavaScript control.
 - Docker build
 - Pug (formerly JADE) HTML templating engine
-- Mongoose (MongoDB) support
+- NoSQL support (DynamoDB or MongoDB)
 - API documentation generation with apidoc
 - Mocha, Chai and Sinon for unit and integration testing
 - TSLint as TypeScript linter
@@ -19,6 +19,8 @@
 ### Prerequisites
 
 - Node.js (9.1+)
+- Go (1.6+)
+- Serverless Framework
 - Docker (if running as container)
 
 ### Installation

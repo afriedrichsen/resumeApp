@@ -1,25 +1,27 @@
 {
   "user_name" : "Alexander Friedrichsen",
-  "socialmedia" : {
-    "github" : {
+  "socialmedia" : [
+    {
+      "id":"github",
       "iconName" : "github",
       "url" : "https://github.com/afriedrichsen"
     },
-    "linkedin" : {
+    {
+      "id":"linkedin",
       "iconName" : "linkedin",
       "url" : "http://www.linkedin.com/in/afriedrichsen"
     },
-    "keybase" : {
+    {
+      "id":"keybase",
       "iconName" : "keybase",
       "url" : "https://keybase.io/afriedrichsen"
     }
-  },
+  ],
   "sections" : {
     "experience" : {
       "id" : "experience",
       "title" : "Professional Experience",
-      "items" : {
-        "usbank" : {
+      "items" : [{
           "id" : "usbank",
           "title" : "US Bancorp. Inc",
           "place" : "Minneapolis/Richfield, MN",
@@ -27,7 +29,7 @@
           "date" : "October 2013–Present",
           "desc" : "<ul><li>Designed and maintained an automated JavaScript (Node.js, React.js, Redux) application for provisioning user identities and access within Microsoft Azure.</li><li>Wrote and maintain custom .NET (C#) libraries used for integrating legacy security applications into Office365/Azure infrastructure.</li><li>Designed and implemented a NoSQL (MongoDB)/ExpressJS solution for tracking application account metadata for all Bank applications.</li></ul>"
         },
-        "teksystems" : {
+        {
           "id" : "teksystems",
           "title" : "<a href='http://www.teksystems.com' target='_blank'>TekSystems</a>",
           "website" : "http://www.teksystems.com",
@@ -36,7 +38,7 @@
           "date" : "July-October 2013",
           "desc" : "<ul><li>Used SQL and Python to create automated reports on workstation and server vulnerabilities.</li><li>Maintained and optimized database stored procedures and functions.</li><li>Maintained Java code responsible for generating regularly scheduled reports.</li></ul>"
         },
-        "stthomas" : {
+        {
           "id" : "stthomas",
           "title" : "<a href='https://www.stthomas.edu' target='_blank'>University of St. Thomas</a>",
           "website" : "https://www.stthomas.edu",
@@ -44,14 +46,13 @@
           "subtitle" : "Student Engineer",
           "date" : "September 2009-July 2013",
           "desc" : "<ul><li>Assisted with the design of SSRS/SSIS packages to present data from a SQL database tracking loanable technology assets (laptops, projectors, etc.)</li><li>Contributed to the design of a self-service web application in Django/ReactJS for fetching reports on loanable technology assets.</li><li>Assisted students, faculty and staff with both hardware and software administration tasks (account resets, mail/file quotas, etc.)</li></ul>"
-        }
-      }
-    },
+        }]
+      },
     "education" : {
       "id" : "education",
       "title" : "Education",
-      "items" : {
-        "stthomas" : {
+      "items" : [
+        {
           "id" : "stthomas",
           "title" : "<a href='http://stthomas.edu' target='_blank'>University of St. Thomas</a>",
           "website" : "http://www.stthomas.edu",
@@ -60,92 +61,103 @@
           "date" : "May, 2013",
           "desc" : "<span><strong>Selected Coursework: </strong></span><ul><li>Econometrics</li><li>Macroeconomic Theory</li><li>Game Theory</li><li>Cryptography</li><li>Programming with Data Structures and Algorithms</li><li>Political Behavior</li><li>Linear Algebra</li>"
         }
-      }
+      ]
     },
     "projects" : {
       "id" : "projects",
       "title" : "Projects",
-      "items" : {
-        "office365-admin" : {
+      "items" : [
+        {
           "id" : "office365-admin",
           "title" : "<a href='https://github.com/afriedrichsen/node-o365-admin-service' target='_blank'>Microsoft Azure Administration Service</a>",
           "website" : "https://github.com/afriedrichsen/node-o365-admin-service",
           "desc" : "An Node.js web application with designed for administering Microsoft Azure and its related services (specifically Office365, Intune and OneDrive). Leverages the Microsoft Graph API. Implements a UI built with <code>React</code>/<code>Redux.</code>"
         },
-        "exchange-ps-service" : {
+        {
           "id" : "exchange-ps-service",
           "title" : "<a href='https://github.com/afriedrichsen/exchange-service'>Exchange Administration Service</a>",
           "website" : "https://github.com/afriedrichsen/exchange-service",
           "desc" : "A NodeJS web service for managing users, groups and contacts used by Exchange Online/Exchange 2016. Leverages a \"Stateful Command Proxy\" for running PowerShell commands."
         },
-        "resume" : {
+        {
           "id" : "resume",
           "title" : "<a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>This Resume</a>",
           "website" : "https://github.com/afriedrichsen/resumeApp",
           "desc" : "As a way of demonstrating my abilities with <code>Node</code> and other related technologies (<code>CoffeeScript</code> + <code>Express</code> + <code>Jade</code>, specifically), I built this resume page. The app renders resume content stored in a <span class='mono-font'>MongoDB</span> database. Check out the <a href='https://github.com/afriedrichsen/resumeApp' target='_blank'>repo on github</a>."
         }
-      }
+      ]
     },
     "skillbars" : {
       "id" : "skillbars",
       "title" : "Technical Skills",
-      "items" : {
-        "js" : {
+      "items" : [
+        {
+          "id": "js",
           "title" : "JavaScript",
           "level" : "95",
           "years" : "6 years"
         },
-        "python" : {
+        {
+          "id": "python",
           "title" : "Python",
           "level" : "95",
           "years" : "6 years"
         },
-        "sql" : {
+        {
+          "id": "sql",
           "title" : "SQL",
           "level" : "95",
           "years" : "6 years"
         },
-        "node" : {
+        {
+          "id": "node",
           "title" : "Node.js",
           "level" : "70",
           "years" : "5 years"
         },
-        "Csharp" : {
+        {
+          "id": "csharp",
           "title" : "C#",
           "level" : "70",
           "years" : "4 years"
         },
-        "mongodb" : {
+        {
+          "id": "mongo",
           "title" : "MongoDB",
           "level" : "50",
           "years" : "3 years"
         },
-        "vbscript" : {
+        {
+          "id": "vbnet",
           "title" : "VB.Net",
           "level" : "70",
           "years" : "4 years"
         },
-        "unix" : {
+        {
+          "id": "unix",
           "title" : "Unix/Bash",
           "level" : "80",
           "years" : "6 years"
         },
-        "windows" : {
+        {
+          "id": "windows",
           "title" : "Windows/PS",
           "level" : "90",
           "years" : "6 years"
         },
-        "jenkins" : {
+        {
+          "id": "jenkins",
           "title" : "Jenkins",
           "level" : "45",
           "years" : "1 year"
         },
-        "docker" : {
+        {
+          "id": "docker",
           "title" : "Docker",
           "level" : "45",
           "years" : "2 years"
         }
-      }
+      ]
     },
     "skillbars-print" : {
       "id" : "skillbars-print",
@@ -159,8 +171,8 @@
     "leadership" : {
       "id" : "leadership",
       "title" : "Leadership Experience",
-      "items" : {
-        "usbintern" : {
+      "items" : [
+        {
           "id" : "usbintern",
           "title" : "<a href='https://www.usbank.com/internships/'>U.S. Bank Internship Program</a>",
           "website" : "https://www.usbank.com/internships/",
@@ -169,16 +181,16 @@
           "date" : "2014&#8211;Present",
           "desc" : "<ul><li>Help ensure the program runs smoothly during the summer and serve as a point of contact for any intern questions related to the program itself, career development, or otherwise.</li><li>Assist with conducting interviews with potential intern candidates.</li><li>Collaborated with the Bank college recruitment group to expand the internship program from Technology to a program covering all Bank departments.</li></ul>"
         }
-      }
+      ]
     },
     "activities" : {
       "title" : "Activities",
-      "items" : {
-        "volunteer" : {
+      "items" : [
+        {
           "title" : "Volunteer",
           "desc" : "<ul> <li>Volunteer Driver - <a href='https://tcfoodjustice.org'>Twin Cities Food Justice</a></li></ul>"
         }
-      }
+      ]
     }
   }
 }
