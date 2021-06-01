@@ -1,3 +1,5 @@
+plugins:
+  - serverless-offline
 # Welcome to Serverless!
 #
 # This file is the main config file for your service.
