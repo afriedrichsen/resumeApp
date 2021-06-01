@@ -55,8 +55,8 @@ describe ('Resume API', async () => {
 
 
 describe('Resume API', () => {
-    let mongod: MongoMemoryServer
-    beforeAll(async (done) => {
+    /* let mongod: MongoMemoryServer
+     beforeAll(async (done) => {
         mongod = new MongoMemoryServer({ instance: {
             port: 27017,
             dbName: 'resume_data'
@@ -67,7 +67,7 @@ describe('Resume API', () => {
         const database = conn.db('resume_data')
         const collection = database.collection('resume_data')
         await collection.insertOne(data)
-    })
+    })*/
   it('should get resume index page', async () => {
         const response = await request(app.callback()).get('/')
         expect(response).toBeDefined()
@@ -80,7 +80,7 @@ describe('Resume API', () => {
       await app.context.db.mongoose.disconnect()
   })
 
-  afterAll(async () => {
+  /* afterAll(async () => {
       await mongod.stop()
-  })
+  }) */
 })
