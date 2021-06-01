@@ -159,4 +159,5 @@ resources:
                 - Effect: Allow
                   Action: 
                     - cloudwatch:*
+                    - logs:*
                   Resource: "*"

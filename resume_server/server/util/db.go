@@ -10,10 +10,10 @@ import (
 )
 
 type resume struct {
-	ID          string `json:"id,omitempty"`
-	UserName    string `json:"user_name,omitempty"`
-	SocialMedia string `json:"socialmedia,omitempty"`
-	Sections    string `json:"sections,omitempty"`
+	ID          string      `json:"id,omitempty"`
+	UserName    string      `json:"user_name,omitempty"`
+	SocialMedia interface{} `json:"socialmedia,omitempty"`
+	Sections    interface{} `json:"sections,omitempty"`
 }
 
 type Service interface {
