@@ -71,6 +71,8 @@ functions:
       - httpApi:
           path: /resume
           method: get
+          cors:
+            origin: '*'
     environment:
       RESUME_DB_REGION: "us-east-2"
   # downloader:

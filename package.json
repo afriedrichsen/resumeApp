@@ -104,6 +104,7 @@
     "lint:watch": "yarn lint -- --watch",
     "development": "nodemon ./app/index.js",
     "production": "pm2 start ./app/app.js",
+    "server:development": "node ./node_modules/.bin/serverless offline start",
     "start": "node ./app/index.js",
     "build:v2": "tsc && npm run copy:static",
     "copy:static": "cp -r ./app/public/ ./dist/public",
