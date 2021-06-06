@@ -5,13 +5,14 @@ import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 
 import schema from './schema';
+import DBClient from './util/db_client';
+import Config from './config/config';
 
 const resume: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
-  return formatJSONResponse({
-    // message: `Hello ${event.body.name}, welcome to the exciting Serverless world!`,
-    message: 'We are go!',
-    event,
-  });
+  console.log(`Environment is ${Config.env}`)
+  const client = new DBClient()
+  const data = await client.getItems()
+  return formatJSONResponse(data)
 }
 
 export const main = middyfy(resume);
