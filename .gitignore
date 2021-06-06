@@ -78,3 +78,4 @@ rancher.yaml
 
 **/bin/
 **/.serverless/
+**/.webpack/
