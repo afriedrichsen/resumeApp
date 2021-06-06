@@ -11,9 +11,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import Config from './config/config'
 
 // Components
-import ResumeSection from './ResumeSection'
+import ExperienceSection from './ExperienceSection'
+import LeadershipSection from './LeadershipSection'
+import SkillsSection from './SkillsSection'
 import SocialMedia from './SocialMedia'
 import ResumeUtil from './utils/resume_util'
+import ProjectsSection from './ProjectsSection'
 
 
 type AppProps = {}
@@ -33,13 +36,14 @@ class App extends React.Component<AppProps, AppState> {
   async componentDidMount() {
     const util = new ResumeUtil()
     const data = await util.fetchResumeData()
-    this.state = {
-      data: {}
-    }
+    this.setState({
+      data: data
+    })
   }
 
   render() {
     return (
+      this.state.data.sections ?
       <div className="App">
         <Container>
         <header className='hero'>
@@ -54,21 +58,24 @@ class App extends React.Component<AppProps, AppState> {
                   <br/>
                   <a href="mailto:afriedrichsen@me.com">afriedrichsen@me.com</a>
                   <p>+1.605.380.7346</p>
-                  <SocialMedia />
+                  <SocialMedia data={this.state.data.socialmedia}/>
+                  <ExperienceSection data={this.state.data.sections.experience} />
+                  <SkillsSection data={this.state.data.sections.skillbars} />
+                  <ProjectsSection data={this.state.data.sections.projects} />
+                  <LeadershipSection data={this.state.data.sections.leadership} />
                 </address>
               </span>
             </span>
           </div>
         </header>
-        <ResumeSection />
         </Container>
         <div className='footer'>
           <hr />
           <p>
-          <span className='sans-font'>&copy 2018</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Updated 06/13/18&nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='/temp/Friedrichsen_Resume_data.pdf'>here</a>.
+          <span className='sans-font'>&copy 2018</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Updated 06/13/18&nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='./download'>here</a>.
           </p>
         </div>
-      </div>
+      </div> : <div>Loading...</div>
     );
   }
 }
