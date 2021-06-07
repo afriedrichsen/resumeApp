@@ -5,7 +5,7 @@ on:
 name: "Nightly Build"
 
 jobs:
-  deploy:
+  server:
     name: Deploy Stack
     runs-on: ubuntu-latest
     strategy:
@@ -36,3 +36,35 @@ jobs:
           # or if using AWS credentials directly
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  frontend:
+    name: Deploy Stack
+    needs: server
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install -g yarn && yarn install
+        working-directory: './resume-ui'
+      - run: yarn build
+        working-directory: './resume-ui'
+      # - name: DeployUI
+      #   uses: serverless/github-action@master
+      #   with:
+      #     args: -c "cd ./resume-server && ls . && serverless deploy --stage production --region us-east-2"
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
