@@ -1,7 +1,7 @@
 import React from 'react'
-import linkedin from './img/linkedin.png'
-import github from './img/github.png'
-import keybase from './img/keybase.png'
+import linkedin from './linkedin.png'
+import github from './github.png'
+import keybase from './keybase.png'
 
 type SocialMediaProps = {
     data?: any
