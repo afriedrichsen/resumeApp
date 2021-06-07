@@ -25,14 +25,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: npm install -g serverless
+        name: "Install Serverless"
       - run: npm ci
         working-directory: './resume-server'
-      - run: cd './resume-server'
-      - run: 'pwd'
+        name: "Install Build Dependencies"
       - name: DeployBackend
-        uses: serverless/github-action@master
-        with:
-          args: -c "serverless deploy --stage production --region us-east-2"
+        run: "serverless deploy --stage production --region us-east-2"
+        working-directory: './resume-server'
         env:
           # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           # or if using AWS credentials directly
