@@ -1,6 +1,6 @@
 # Resume - Full-Stack Application
 
-[![Build Status](https://travis-ci.org/afriedrichsen/resumeApp.svg?branch=master)](https://travis-ci.org/afriedrichsen/resumeApp)
+[![Nightly Build](https://github.com/afriedrichsen/resumeApp/actions/workflows/actions.yml/badge.svg)](https://github.com/afriedrichsen/resumeApp/actions/workflows/actions.yml)
 [![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
 
 ### Features

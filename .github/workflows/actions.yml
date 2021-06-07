@@ -1,7 +1,7 @@
 on:
   schedule:
     - cron:  '30 5 * * *'
-name: "Deploy Resume App - Nightly"
+name: "Nightly Build"
 
 jobs:
   deploy:
