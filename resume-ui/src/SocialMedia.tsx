@@ -36,10 +36,10 @@ class SocialMedia extends React.Component<SocialMediaProps, SocialMediaState> {
 
     render() {
         return(
-        <p className="social-media">
+        <p className='social-media'>
             {this.props.data.map((service: any, index: any) => (
                <a href={service.url}>
-                   <img className="img-circle" src={logos[service.iconName]} />
+                   <img className='img-circle' src={logos[service.iconName]} alt={service.iconName} />
                </a>
             )
            )}
