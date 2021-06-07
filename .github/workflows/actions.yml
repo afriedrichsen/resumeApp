@@ -6,7 +6,7 @@ name: "Nightly Build"
 
 jobs:
   server:
-    name: Deploy Stack
+    name: Deploy App - Backend
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -39,7 +39,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   frontend:
-    name: Deploy Stack
+    name: Deploy App - Frontend
     needs: server
     runs-on: ubuntu-latest
     strategy:
