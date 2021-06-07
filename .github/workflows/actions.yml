@@ -63,10 +63,23 @@ jobs:
         working-directory: './resume-ui'
       - run: yarn build
         working-directory: './resume-ui'
-      # - name: DeployUI
-      #   uses: serverless/github-action@master
-      #   with:
-      #     args: -c "cd ./resume-server && ls . && serverless deploy --stage production --region us-east-2"
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Remove Previous Build
+        uses: vitorsgomes/s3-rm-action@master
+        with:
+          args: --recursive
+        env:
+          AWS_S3_BUCKET: 'af-prod-app-origin'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'
+          # PATH_TO_DELETE: ${{ github.event.ref }}
+      - uses: jakejarvis/s3-sync-action@master
+        name: "Deploy UI Assets"
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: 'af-prod-app-origin'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'   # optional: defaults to us-east-1
+          SOURCE_DIR: './resume-ui/build'      # optional: defaults to entire repository
