@@ -1,6 +1,6 @@
-import type { AWS } from '@serverless/typescript';
+import type { AWS } from '@serverless/typescript'
 
-import server from '@functions/server';
+import server from '@functions/server'
 
 const serverlessConfiguration: AWS = {
   service: 'resume-server',
@@ -24,9 +24,19 @@ const serverlessConfiguration: AWS = {
       NODE_ENV: 'production'
     },
     lambdaHashingVersion: '20201221',
+    iam: {
+      role: {
+        name: 'friedrichsen-resume-server-lambda-exec-role',
+        statements: [{
+          Effect: 'Allow',
+          Action: ['dynamodb:*'],
+          Resource: '*'
+        }],
+      }
+    },
   },
   // import the function via paths
   functions: { server },
-};
+}
 
-module.exports = serverlessConfiguration;
+module.exports = serverlessConfiguration
