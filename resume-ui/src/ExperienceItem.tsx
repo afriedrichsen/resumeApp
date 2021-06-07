@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row } from 'reactstrap'
+import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap'
 
 type ExperienceItemProps = {
     item?: any
@@ -50,11 +50,11 @@ class ExperienceItem extends React.Component<ExperienceItemProps, ExperienceItem
             <Row className='desc-row'>
             <Col className='col-sm'>
                 {/* <div className='fullSpan'>{this.props.item.desc}</div> */}
-                <ul>
+                <ListGroup>
                     {this.props.item.highlights.map((i: any, key: any) =>
-                        <li>{i.desc}</li>
+                        <ListGroupItem>{i.desc}</ListGroupItem>
                     )}
-                </ul>
+                </ListGroup>
             </Col>
             </Row>
         </div>)

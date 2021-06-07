@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row } from 'reactstrap'
+import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap'
 
 type LeadershipItemProps = {
     item?: any
@@ -50,11 +50,11 @@ class LeadershipItem extends React.Component<LeadershipItemProps, LeadershipItem
             <Row className='desc-row'>
             <Col className='col-sm'>
                 <div className='fullSpan'>
-                    <ul>
-                        {this.props.item.highlights.map((i: any, key: any) => <li>
+                    <ListGroup>
+                        {this.props.item.highlights.map((i: any, key: any) => <ListGroupItem>
                             {i.desc}
-                        </li>)}
-                </ul>
+                        </ListGroupItem>)}
+                </ListGroup>
                 </div>
             </Col>
             </Row>
