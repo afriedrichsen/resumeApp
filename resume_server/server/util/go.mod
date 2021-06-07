@@ -1,1 +1,0 @@
-github.com/resumeApp/resume_server/server/util
