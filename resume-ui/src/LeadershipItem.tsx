@@ -50,11 +50,11 @@ class LeadershipItem extends React.Component<LeadershipItemProps, LeadershipItem
             <Row className='desc-row'>
             <Col className='col-sm'>
                 <div className='fullSpan'>
-                    <ListGroup>
-                        {this.props.item.highlights.map((i: any, key: any) => <ListGroupItem>
+                    <ul>
+                        {this.props.item.highlights.map((i: any, key: any) => <li>
                             {i.desc}
-                        </ListGroupItem>)}
-                </ListGroup>
+                        </li>)}
+                </ul>
                 </div>
             </Col>
             </Row>

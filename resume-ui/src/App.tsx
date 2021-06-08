@@ -42,6 +42,8 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
+    const date: Date = new Date()
+    const year: number = date.getFullYear()
     return (
       this.state.data.sections ?
       <div className="App">
@@ -72,7 +74,7 @@ class App extends React.Component<AppProps, AppState> {
         <div className='footer'>
           <hr />
           <p>
-          <span className='sans-font'>&copy 2018</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Updated 06/13/18&nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='./download'>here</a>.
+          <span className='sans-font'>&copy; {year}</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Updated 06/13/18&nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='./download'>here</a>.
           </p>
         </div>
       </div> : <div>Loading...</div>

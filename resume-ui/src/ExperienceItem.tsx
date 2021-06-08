@@ -50,11 +50,11 @@ class ExperienceItem extends React.Component<ExperienceItemProps, ExperienceItem
             <Row className='desc-row'>
             <Col className='col-sm'>
                 {/* <div className='fullSpan'>{this.props.item.desc}</div> */}
-                <ListGroup>
+                <ul style={{display: 'inline-block;vertical-align:middle;'}}>
                     {this.props.item.highlights.map((i: any, key: any) =>
-                        <ListGroupItem>{i.desc}</ListGroupItem>
+                        <li>{i.desc}</li>
                     )}
-                </ListGroup>
+                </ul>
             </Col>
             </Row>
         </div>)
