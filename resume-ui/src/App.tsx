@@ -74,7 +74,7 @@ class App extends React.Component<AppProps, AppState> {
         <div className='footer'>
           <hr />
           <p>
-          <span className='sans-font'>&copy; {year}</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Updated 06/13/18&nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='./download'>here</a>.
+          <span className='sans-font'>&copy; {year}</span> <a href='https://alex.friedrichsen.me/'>Alex Friedrichsen</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Current Build: {this.state.data.buildVersion} &nbsp;&nbsp;&middot;&nbsp;&nbsp;PDF Version <a href='./download'>here</a>.
           </p>
         </div>
       </div> : <div>Loading...</div>

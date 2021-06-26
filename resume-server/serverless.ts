@@ -1,6 +1,9 @@
 import type { AWS } from '@serverless/typescript'
 
 import server from '@functions/server'
+import { DateTime } from 'luxon'
+
+const buildTag: string = "build-" + DateTime.now().toFormat('yyyyMMdd')
 
 const serverlessConfiguration: AWS = {
   service: 'resume-server',
@@ -21,7 +24,8 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      NODE_ENV: 'production'
+      NODE_ENV: 'production',
+      BUILD_VERSION: '${opt:build_version, ' + buildTag +  '}'
     },
     lambdaHashingVersion: '20201221',
     iam: {

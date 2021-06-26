@@ -12,6 +12,7 @@ const resume: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) 
   console.log(`Environment is ${Config.env}`)
   const client = new DBClient()
   const data = await client.getItems()
+  data.buildVersion = process.env.BUILD_VERSION || 'local-dev'
   return formatJSONResponse(data)
 }
 
