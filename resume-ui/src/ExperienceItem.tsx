@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap'
+import { Col, Row } from 'reactstrap'
 
 type ExperienceItemProps = {
     item?: any
