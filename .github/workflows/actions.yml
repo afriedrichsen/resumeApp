@@ -32,8 +32,11 @@ jobs:
       - run: npm ci
         working-directory: './resume-server'
         name: "Install Build Dependencies"
+      - name: Get Build Tag
+        id: tag
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
       - name: DeployBackend
-        run: "serverless deploy --stage production --region us-east-2"
+        run: "serverless deploy --stage production --region us-east-2 --build_version ${GITHUB_REF##*/}-${{ steps.tag.outputs.date }} "
         working-directory: './resume-server'
         env:
           # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
