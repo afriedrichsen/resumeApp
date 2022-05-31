@@ -8,7 +8,6 @@
 - ES2017 Syntax for Express
 - TypeScript for type safety and cleaner JavaScript control.
 - Docker build
-- Pug (formerly JADE) HTML templating engine
 - NoSQL support (DynamoDB or MongoDB)
 - API documentation generation with apidoc
 - Mocha, Chai and Sinon for unit and integration testing
