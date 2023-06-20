@@ -1,4 +1,4 @@
-from aws_cdk import RemovalPolicy, Stack
+from aws_cdk import CfnOutput, RemovalPolicy, Stack
 from aws_cdk import aws_certificatemanager as acm  # Duration,
 from aws_cdk import aws_cloudfront as cloudfront
 from aws_cdk import aws_cloudfront_origins as origins
@@ -70,3 +70,6 @@ class ResumeAppStack(Stack):
                 route53_targets.CloudFrontTarget(distribution=distribution)
             ),
         )
+
+        # Outputs.
+        CfnOutput(self, "DeployBucket", value=bucket.bucket_name)

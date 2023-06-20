@@ -49,6 +49,9 @@
     "@aws-cdk/aws-apigateway:requestValidatorUniqueId": true,
     "@aws-cdk/aws-kms:aliasNameRef": true,
     "@aws-cdk/core:includePrefixInUniqueNameGeneration": true,
+    "host": "alex-sbx",
+    "domain": "friedrichsen.me",
+    "zone": "Z04104722OVAV2HXUCSI2",
     "dev": {
       "host": "alex-dev",
       "domain": "friedrichsen.me",
