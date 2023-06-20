@@ -92,9 +92,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      # - uses: jakejarvis/hugo-build-action@master # ...or replace 'master' with a full version tag, such as: v0.64.1
-      #   with:
-      #     args: --source ./resume-ui-simple --minify --buildDrafts
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -105,7 +102,7 @@ jobs:
       - name: 'Check UI Assets'
         run: |
           ls ./resume-ui-simple/public
-      - name: 'Deploy UI Assets'
+      - name: 'Remove Previous UI Assets'
         run: |
           aws s3 rm s3://$AWS_S3_BUCKET --recursive
         env:
@@ -115,22 +112,3 @@ jobs:
           aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
-      # - name: Remove Previous Build
-      #   uses: vitorsgomes/s3-rm-action@master
-      #   with:
-      #     args: --recursive
-      #   env:
-      #     AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     AWS_REGION: 'us-east-1'
-      # - uses: jakejarvis/s3-sync-action@master
-      #   name: 'Deploy UI Assets'
-      #   with:
-      #     args: --follow-symlinks --delete --include '*' --exclude '*.*'
-      #   env:
-      #     AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     AWS_REGION: 'us-east-1' # optional: defaults to us-east-1
-      #     SOURCE_DIR: './resume-ui-simple/public' # optional: defaults to entire repository
