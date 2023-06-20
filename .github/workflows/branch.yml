@@ -5,11 +5,11 @@ on:
   workflow_dispatch:
   # schedule:
   #   - cron:  '30 5 * * *'
-name: 'Nightly Build'
+name: 'Feature (CI-Test) Build'
 
 jobs:
   server:
-    name: Deploy App - Backend
+    name: (CI-Test Only) Deploy App - Backend
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   # schedule:
   #   - cron:  '30 5 * * *'
-name: "Nightly Build"
+name: 'Nightly Build'
 
 jobs:
   server:
@@ -22,69 +22,77 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install -g serverless
-        name: "Install Serverless"
-      - run: npm ci
-        working-directory: './resume-server'
-        name: "Install Build Dependencies"
+          aws-region: us-east-1
       - name: Get Build Tag
         id: tag
         run: echo "::set-output name=date::$(date +'%Y%m%d')"
-      - name: DeployBackend
-        run: "serverless deploy --stage production --region us-east-2 --build_version ${GITHUB_REF##*/}-${{ steps.tag.outputs.date }}-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}"
-        working-directory: './resume-server'
+      # - name: DeployBackend
+      #   run: 'serverless deploy --stage production --region us-east-2 --build_version ${GITHUB_REF##*/}-${{ steps.tag.outputs.date }}-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}'
+      #   working-directory: './resume-server'
+      #   env:
+      #     # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+      #     # or if using AWS credentials directly
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: cdk deploy
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'deploy'
+          cdk_stack: 'prod-us1'
+          cdk_args: '--require-approval never'
+          actions_comment: false
         env:
-          # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
-          # or if using AWS credentials directly
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  frontend:
-    name: Deploy App - Frontend
-    needs: server
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
-    environment: production
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn && yarn install
-        working-directory: './resume-ui'
-      - run: yarn build
-        working-directory: './resume-ui'
-      - name: Remove Previous Build
-        uses: vitorsgomes/s3-rm-action@master
-        with:
-          args: --recursive
-        env:
-          AWS_S3_BUCKET: 'af-prod-app-origin'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-2'
-          # PATH_TO_DELETE: ${{ github.event.ref }}
-      - uses: jakejarvis/s3-sync-action@master
-        name: "Deploy UI Assets"
-        with:
-          args: --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: 'af-prod-app-origin'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-2'   # optional: defaults to us-east-1
-          SOURCE_DIR: './resume-ui/build'      # optional: defaults to entire repository
+          AWS_DEFAULT_REGION: 'us-east-1'
+  # frontend:
+  #   name: Deploy App - Frontend
+  #   needs: server
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [14.x]
+  #   environment: production
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-east-2
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - run: npm install -g yarn && yarn install
+  #       working-directory: './resume-ui'
+  #     - run: yarn build
+  #       working-directory: './resume-ui'
+  #     - run: npm install -g yarn && yarn install
+  #       working-directory: './resume-ui'
+  #     - uses: jakejarvis/hugo-build-action@master # ...or replace 'master' with a full version tag, such as: v0.64.1
+  #       with:
+  #         args: --source ./resume-ui-simple --minify --buildDrafts
+  #     - name: Remove Previous Build
+  #       uses: vitorsgomes/s3-rm-action@master
+  #       with:
+  #         args: --recursive
+  #       env:
+  #         AWS_S3_BUCKET: 'af-prod-app-origin'
+  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         AWS_REGION: 'us-east-2'
+  #         # PATH_TO_DELETE: ${{ github.event.ref }}
+  #     - uses: jakejarvis/s3-sync-action@master
+  #       name: 'Deploy UI Assets'
+  #       with:
+  #         args: --follow-symlinks --delete
+  #       env:
+  #         AWS_S3_BUCKET: 'af-prod-app-origin'
+  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         AWS_REGION: 'us-east-2' # optional: defaults to us-east-1
+  #         # SOURCE_DIR: './resume-ui/build' # optional: defaults to entire repository
+  #         SOURCE_DIR: './resume-ui-simple/public' # optional: defaults to entire repository
