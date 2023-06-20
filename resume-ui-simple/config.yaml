@@ -152,13 +152,12 @@ params:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
-        - "AWS Lambda"
-        - "AWS ECS"
-        - "AWS EKS"
         - "Java"
         - "TypeScript"
         - "Node"
         - "Python"
+        - "Amazon Web Services"
+        - "Kubernetes"
 
   # Experience
   experience:
@@ -246,7 +245,7 @@ params:
         content: |-
          Focus
           - Political Theory
-          - Face mask detection using a single convolutional neural network.
+          - Political Behavior
         featuredLink:
           enable: false
           name: "My academic record"
