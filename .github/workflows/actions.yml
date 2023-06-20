@@ -12,11 +12,31 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
+        python-version: ['3.11']
+        poetry-version: ['1.5.1']
+        os: [ubuntu-latest]
     environment: production
+    outputs:
+      target_bucket: ${{ steps.deploy_info.outputs.target_bucket }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install Deps
+        run: npm install -g aws-cdk && poetry install
+        working-directory: infrastructure
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -25,74 +45,69 @@ jobs:
           aws-region: us-east-1
       - name: Get Build Tag
         id: tag
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
-      # - name: DeployBackend
-      #   run: 'serverless deploy --stage production --region us-east-2 --build_version ${GITHUB_REF##*/}-${{ steps.tag.outputs.date }}-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}'
-      #   working-directory: './resume-server'
-      #   env:
-      #     # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
-      #     # or if using AWS credentials directly
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: cdk deploy
-        uses: youyo/aws-cdk-github-actions@v2
-        with:
-          cdk_subcommand: 'deploy'
-          cdk_stack: 'prod-us1'
-          cdk_args: '--require-approval never'
-          actions_comment: false
+        run: |
+          current=$(date +'%Y%m%d')
+          echo date="$current" >> $GITHUB_OUTPUT
+      - name: Deploy
+        id: deploy
+        run: |
+          source $(poetry env info --path)/bin/activate
+          cdk deploy 'prod-us1' --require-approval never --outputs-file ./cdk-outputs.json
+          cat cdk-outputs.json
+          # cdk destroy 'prod-us1' --require-approval never
+        working-directory: infrastructure
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
-  # frontend:
-  #   name: Deploy App - Frontend
-  #   needs: server
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [14.x]
-  #   environment: production
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Configure AWS credentials
-  #       uses: aws-actions/configure-aws-credentials@v1
-  #       with:
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         aws-region: us-east-2
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - run: npm install -g yarn && yarn install
-  #       working-directory: './resume-ui'
-  #     - run: yarn build
-  #       working-directory: './resume-ui'
-  #     - run: npm install -g yarn && yarn install
-  #       working-directory: './resume-ui'
-  #     - uses: jakejarvis/hugo-build-action@master # ...or replace 'master' with a full version tag, such as: v0.64.1
-  #       with:
-  #         args: --source ./resume-ui-simple --minify --buildDrafts
-  #     - name: Remove Previous Build
-  #       uses: vitorsgomes/s3-rm-action@master
-  #       with:
-  #         args: --recursive
-  #       env:
-  #         AWS_S3_BUCKET: 'af-prod-app-origin'
-  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         AWS_REGION: 'us-east-2'
-  #         # PATH_TO_DELETE: ${{ github.event.ref }}
-  #     - uses: jakejarvis/s3-sync-action@master
-  #       name: 'Deploy UI Assets'
-  #       with:
-  #         args: --follow-symlinks --delete
-  #       env:
-  #         AWS_S3_BUCKET: 'af-prod-app-origin'
-  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         AWS_REGION: 'us-east-2' # optional: defaults to us-east-1
-  #         # SOURCE_DIR: './resume-ui/build' # optional: defaults to entire repository
-  #         SOURCE_DIR: './resume-ui-simple/public' # optional: defaults to entire repository
+      - name: JSON to variables
+        uses: rgarcia-phi/json-to-variables@v1.1.0
+        with:
+          filename: 'infrastructure/cdk-outputs.json'
+          prefix: deploy
+          masked: false
+      - name: Show output
+        id: deploy_info
+        run: |
+          data=${{ env.deploy_prod-us1_DeployBucket }}
+          echo "The bucket name was $data"
+          echo "target_bucket=$data" >> "$GITHUB_OUTPUT"
+  frontend:
+    name: Deploy App - Frontend
+    needs: server
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: 'Build UI Assets'
+        run: hugo --source ./resume-ui-simple --minify
+      - name: 'Check UI Assets'
+        run: |
+          ls ./resume-ui-simple/public
+      - name: 'Remove Previous UI Assets'
+        run: |
+          aws s3 rm s3://$AWS_S3_BUCKET --recursive
+        env:
+          AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
+      - name: 'Deploy UI Assets'
+        run: |
+          aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET
+        env:
+          AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
