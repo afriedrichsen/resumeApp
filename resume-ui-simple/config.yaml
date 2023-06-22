@@ -172,7 +172,7 @@ params:
           enable: false
           name: "View the project"
           url: "https://calabrio.com"
-        content: "I am currently working as a cloud architect at [Calabrio.](https://calabrio.com) in Minneapolis, MN. I am currently focused on cloud modernization and projects related to growing SaaS."
+        content: "I am currently working as a cloud architect in Minneapolis, MN. I am currently focused on cloud modernization and projects related to helping companies grow or modernize their SaaS offerings."
       # - job: "Principal Software Engineer"
       #   company: "Calabrio"
       #   companyUrl: "https://calabrio.com"
