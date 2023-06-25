@@ -90,7 +90,7 @@ class ResumeAppStack(Stack):
             },
             error_responses=[
                 cloudfront.ErrorResponse(
-                    http_status="403",
+                    http_status=403,
                     response_page_path="/maintenance/maintenance.html",
                     ttl=Duration.seconds(15),
                 )
