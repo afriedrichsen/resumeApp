@@ -1,4 +1,4 @@
-from aws_cdk import CfnOutput, RemovalPolicy, Stack
+from aws_cdk import CfnOutput, Duration, RemovalPolicy, Stack
 from aws_cdk import aws_certificatemanager as acm  # Duration,
 from aws_cdk import aws_cloudfront as cloudfront
 from aws_cdk import aws_cloudfront_origins as origins
@@ -43,12 +43,23 @@ class ResumeAppStack(Stack):
             self, "ResumeApp-OAI", comment="ResumeApp OAI for the S3 Website"
         )
 
+        tg_origin = origins.S3Origin(bucket, origin_access_identity=oai, origin_path=try_get_context(self, "deployment_path"))
+
+        index_behavior = cloudfront.BehaviorOptions(
+                origin=tg_origin,
+                origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+                viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+                cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
+                allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+            )
+
         distribution = cloudfront.Distribution(
             self,
             "ResumeCDN",
             default_root_object="index.html",
             default_behavior=cloudfront.BehaviorOptions(
-                origin=origins.S3Origin(bucket, origin_access_identity=oai, origin_path=try_get_context(self, "deployment_path")),
+                origin=tg_origin,
                 origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
                 viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
@@ -57,6 +68,9 @@ class ResumeAppStack(Stack):
             ),
             certificate=certificate,
             domain_names=[target_domain_record],
+            behaviors={
+                'index.html': index_behavior
+            }
         )
 
         # DNS
