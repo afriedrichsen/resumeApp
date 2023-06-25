@@ -21,6 +21,7 @@ jobs:
     outputs:
       target_bucket: ${{ steps.deploy_info.outputs.target_bucket }}
       build_date: ${{ steps.tag.outputs.date }}
+      build_tag: ${{ steps.tag.outputs.build_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -49,7 +50,9 @@ jobs:
         id: tag
         run: |
           current=$(date +'%Y%m%d')
+          current_tag=${GITHUB_REF##*/}-$current-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}
           echo "date=$current" >> "$GITHUB_OUTPUT"
+          echo "build_tag=$current" >> "$GITHUB_OUTPUT"
       - name: Deploy
         id: deploy
         run: |
@@ -59,7 +62,7 @@ jobs:
           # cdk destroy 'dev' --require-approval never
         working-directory: infrastructure
         env:
-          DEPLOY_PATH: ${{ steps.tag.outputs.date }}
+          DEPLOY_PATH: ${{ steps.tag.outputs.build_tag }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
@@ -114,4 +117,4 @@ jobs:
           aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
-          BUILD_LOCATION: '${{needs.server.outputs.build_date}}'
+          BUILD_LOCATION: '${{needs.server.outputs.build_tag}}'

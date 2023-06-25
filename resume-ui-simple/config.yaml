@@ -246,20 +246,13 @@ params:
         # GPA: "3.6 out of 5.0"
         content: |-
          Focus
-          - Political Theory
           - Political Behavior
+          - Political Theory
+          - Political Analysis
         featuredLink:
           enable: false
           name: "My academic record"
           url: "https://example.com"
-      # - title: "High School"
-      #   school:
-      #     name: "Thomas Jefferson High School for Science and Technology."
-      #     url: "https://example.org"
-      #   GPA: "4.2 out of 5.0"
-      #   featuredLink:
-      #     enable: true
-      #     url: "https://example.com"
 
   # Achievements
   achievements:
