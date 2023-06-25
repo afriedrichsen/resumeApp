@@ -52,7 +52,7 @@ jobs:
           current=$(date +'%Y%m%d')
           current_tag=${GITHUB_REF##*/}-$current-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}
           echo "date=$current" >> "$GITHUB_OUTPUT"
-          echo "build_tag=$current" >> "$GITHUB_OUTPUT"
+          echo "build_tag=$current_tag" >> "$GITHUB_OUTPUT"
       - name: Deploy
         id: deploy
         run: |
