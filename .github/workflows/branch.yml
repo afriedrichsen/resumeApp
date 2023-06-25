@@ -115,7 +115,8 @@ jobs:
       - name: 'Deploy UI Assets'
         run: |
           aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
-          aws s3 sync resume-ui-simple/layouts/maintenance.html s3://$AWS_S3_BUCKET/maintenance/
+          ls resume-ui-simple/layouts/
+          aws s3 cp resume-ui-simple/layouts/maintenance.html s3://$AWS_S3_BUCKET/maintenance/
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
           BUILD_LOCATION: '${{needs.server.outputs.build_tag}}'
