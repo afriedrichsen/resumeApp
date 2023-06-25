@@ -137,9 +137,11 @@ params:
           url: https://github.afriedrichsen
         - icon: fab fa-linkedin
           url: https://linkedin.com/afriedrichsen
-      customIcons:
-        - icon: /fav.png
-          url: "https://example.com"
+        - icon: fab fa-keybase
+          url: https://keybase.io/afriedrichsen
+      # customIcons:
+      #   - icon: /fav.png
+      #     url: "https://example.com"
 
   # About
   about:
