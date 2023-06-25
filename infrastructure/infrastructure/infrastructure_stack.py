@@ -86,7 +86,7 @@ class ResumeAppStack(Stack):
             domain_names=[target_domain_record],
             additional_behaviors={
                 "index.html": index_behavior,
-                "/maintenance/maintenance.html": maintenance_behavior,
+                "/maintenance/*": maintenance_behavior,
             },
             error_responses=[
                 cloudfront.ErrorResponse(
