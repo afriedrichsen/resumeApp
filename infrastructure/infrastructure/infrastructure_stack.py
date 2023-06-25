@@ -31,9 +31,9 @@ class ResumeAppStack(Stack):
             self, "ResumeAssetBucket", removal_policy=RemovalPolicy.DESTROY
         )
 
-        error_page_bucket = s3.Bucket(
-            self, "ResumeErrorPageBucket", removal_policy=RemovalPolicy.DESTROY
-        )
+        # error_page_bucket = s3.Bucket(
+        #     self, "ResumeErrorPageBucket", removal_policy=RemovalPolicy.DESTROY
+        # )
 
         certificate = acm.Certificate(
             self,
@@ -47,18 +47,18 @@ class ResumeAppStack(Stack):
             self, "ResumeApp-OAI", comment="ResumeApp OAI for the S3 Website"
         )
 
-        oai_error = cloudfront.OriginAccessIdentity(
-            self, "ResumeApp-OAIError", comment="ResumeApp OAI for the S3 Website (Errors)"
-        )
+        # oai_error = cloudfront.OriginAccessIdentity(
+        #     self, "ResumeApp-OAIError", comment="ResumeApp OAI for the S3 Website (Errors)"
+        # )
 
         tg_origin = origins.S3Origin(
             bucket,
             origin_access_identity=oai,
             origin_path=try_get_context(self, "deployment_path"),
         )
-        maintenance_origin = origins.S3Origin(
-            error_page_bucket, origin_access_identity=oai_error, origin_path="/"
-        )
+        # maintenance_origin = origins.S3Origin(
+        #     error_page_bucket, origin_access_identity=oai_error, origin_path="/"
+        # )
 
         index_behavior = cloudfront.BehaviorOptions(
             origin=tg_origin,
@@ -69,14 +69,14 @@ class ResumeAppStack(Stack):
             allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
         )
 
-        maintenance_behavior = cloudfront.BehaviorOptions(
-            origin=maintenance_origin,
-            origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
-            viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-            response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
-            cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
-            allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
-        )
+        # maintenance_behavior = cloudfront.BehaviorOptions(
+        #     origin=maintenance_origin,
+        #     origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+        #     viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        #     response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+        #     cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
+        #     allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+        # )
 
         distribution = cloudfront.Distribution(
             self,
@@ -94,15 +94,15 @@ class ResumeAppStack(Stack):
             domain_names=[target_domain_record],
             additional_behaviors={
                 "index.html": index_behavior,
-                "/maintenance/*": maintenance_behavior,
+                # "/maintenance/*": maintenance_behavior,
             },
-            error_responses=[
-                cloudfront.ErrorResponse(
-                    http_status=403,
-                    response_page_path="/maintenance/maintenance.html",
-                    ttl=Duration.seconds(15),
-                )
-            ],
+            # error_responses=[
+            #     cloudfront.ErrorResponse(
+            #         http_status=403,
+            #         response_page_path="/maintenance/maintenance.html",
+            #         ttl=Duration.seconds(15),
+            #     )
+            # ],
         )
 
         # DNS
@@ -119,4 +119,4 @@ class ResumeAppStack(Stack):
 
         # Outputs.
         CfnOutput(self, "DeployBucket", value=bucket.bucket_name)
-        CfnOutput(self, "DeployErrorBucket", value=error_page_bucket.bucket_name)
+        # CfnOutput(self, "DeployErrorBucket", value=error_page_bucket.bucket_name)
