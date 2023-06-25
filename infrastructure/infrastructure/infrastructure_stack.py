@@ -68,7 +68,7 @@ class ResumeAppStack(Stack):
             ),
             certificate=certificate,
             domain_names=[target_domain_record],
-            behaviors={
+            additional_behaviors={
                 'index.html': index_behavior
             }
         )
