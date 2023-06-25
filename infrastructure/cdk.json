@@ -52,6 +52,7 @@
     "host": "alex-sbx",
     "domain": "friedrichsen.me",
     "zone": "Z04104722OVAV2HXUCSI2",
+    "deployment_path": "/",
     "dev": {
       "host": "alex-dev",
       "domain": "friedrichsen.me",

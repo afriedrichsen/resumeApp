@@ -48,7 +48,7 @@ class ResumeAppStack(Stack):
             "ResumeCDN",
             default_root_object="index.html",
             default_behavior=cloudfront.BehaviorOptions(
-                origin=origins.S3Origin(bucket, origin_access_identity=oai),
+                origin=origins.S3Origin(bucket, origin_access_identity=oai, origin_path=try_get_context(self, "deployment_path")),
                 origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
                 viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
