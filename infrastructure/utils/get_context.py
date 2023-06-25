@@ -1,7 +1,8 @@
 from collections import ChainMap
 from typing import Dict, List, Union
-from constructs import Construct
+
 from aws_cdk import Stage
+from constructs import Construct
 
 
 def _get_profile_names(profiles: Union[List, str, None]) -> List[str]:
