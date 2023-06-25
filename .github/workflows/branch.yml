@@ -20,6 +20,7 @@ jobs:
     environment: production
     outputs:
       target_bucket: ${{ steps.deploy_info.outputs.target_bucket }}
+      target_error_bucket: ${{ steps.deploy_info.outputs.target_error_bucket }}
       build_date: ${{ steps.tag.outputs.date }}
       build_tag: ${{ steps.tag.outputs.build_tag }}
     steps:
@@ -76,8 +77,11 @@ jobs:
         id: deploy_info
         run: |
           data=${{ env.deploy_dev_DeployBucket }}
+          data_error=${{ env.deploy_dev_DeployErrorBucket }}
           echo "The bucket name was $data"
+          echo "The error bucket name was $data"
           echo "target_bucket=$data" >> "$GITHUB_OUTPUT"
+          echo "target_error_bucket=$data_error" >> "$GITHUB_OUTPUT"
   frontend:
     name: Deploy App - Frontend
     needs: server
@@ -115,7 +119,8 @@ jobs:
       - name: 'Deploy UI Assets'
         run: |
           aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
-          aws s3 sync . s3://$AWS_S3_BUCKET/maintenance/ --exclude '*' --include 'maintenance.html'
+          aws s3 sync . s3://$AWS_S3_ERROR_BUCKET/ --exclude '*' --include 'maintenance.html'
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
+          AWS_S3_ERROR_BUCKET: '${{needs.server.outputs.target_error_bucket}}'
           BUILD_LOCATION: '${{needs.server.outputs.build_tag}}'

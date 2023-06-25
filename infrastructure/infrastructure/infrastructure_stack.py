@@ -31,6 +31,10 @@ class ResumeAppStack(Stack):
             self, "ResumeAssetBucket", removal_policy=RemovalPolicy.DESTROY
         )
 
+        error_page_bucket = s3.Bucket(
+            self, "ResumeErrorPageBucket", removal_policy=RemovalPolicy.DESTROY
+        )
+
         certificate = acm.Certificate(
             self,
             "Certificate",
@@ -43,13 +47,17 @@ class ResumeAppStack(Stack):
             self, "ResumeApp-OAI", comment="ResumeApp OAI for the S3 Website"
         )
 
+        oai_error = cloudfront.OriginAccessIdentity(
+            self, "ResumeApp-OAIError", comment="ResumeApp OAI for the S3 Website (Errors)"
+        )
+
         tg_origin = origins.S3Origin(
             bucket,
             origin_access_identity=oai,
             origin_path=try_get_context(self, "deployment_path"),
         )
         maintenance_origin = origins.S3Origin(
-            bucket, origin_access_identity=oai, origin_path="/maintenance"
+            error_page_bucket, origin_access_identity=oai_error, origin_path="/"
         )
 
         index_behavior = cloudfront.BehaviorOptions(
@@ -111,3 +119,4 @@ class ResumeAppStack(Stack):
 
         # Outputs.
         CfnOutput(self, "DeployBucket", value=bucket.bucket_name)
+        CfnOutput(self, "DeployErrorBucket", value=error_page_bucket.bucket_name)
