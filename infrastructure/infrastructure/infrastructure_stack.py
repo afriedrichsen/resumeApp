@@ -44,6 +44,7 @@ class ResumeAppStack(Stack):
         )
 
         tg_origin = origins.S3Origin(bucket, origin_access_identity=oai, origin_path=try_get_context(self, "deployment_path"))
+        maintenance_origin = origins.S3Origin(bucket, origin_access_identity=oai, origin_path="/maintenance")
 
         index_behavior = cloudfront.BehaviorOptions(
                 origin=tg_origin,
@@ -53,6 +54,15 @@ class ResumeAppStack(Stack):
                 cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
                 allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
             )
+        
+        maintenance_behavior = cloudfront.BehaviorOptions(
+                origin=maintenance_origin,
+                origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+                viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+                cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
+                allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+        )
 
         distribution = cloudfront.Distribution(
             self,
@@ -69,7 +79,8 @@ class ResumeAppStack(Stack):
             certificate=certificate,
             domain_names=[target_domain_record],
             additional_behaviors={
-                'index.html': index_behavior
+                'index.html': index_behavior,
+                '/maintenance/maintenance.html': maintenance_behavior,
             }
         )
 
