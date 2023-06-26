@@ -1,0 +1,6 @@
+[submodule "resume-ui-simple/themes/ananke"]
+	path = resume-ui-simple/themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke
+[submodule "resume-ui-simple/themes/hugo-profile"]
+	path = resume-ui-simple/themes/hugo-profile
+	url = https://github.com/gurusabarish/hugo-profile.git

@@ -60,7 +60,8 @@ typings/
 app/.env
 
 #IntelliJ
-.idea/
+**/.idea/
+**/.vscode
 
 .DS_Store
 
@@ -79,3 +80,7 @@ rancher.yaml
 **/bin/
 **/.serverless/
 **/.webpack/
+
+resume-ui-simple/public
+resume-ui-simple/resources
+resume-ui-simple/*.lock
