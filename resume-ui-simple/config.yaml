@@ -128,7 +128,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "https://alex.friedrichsen.me/resume/download"
+      url: "https://alex.friedrichsen.me/resume/download/friedrichsen_resume_latest.pdf"
       download: true
       newPage: false
     socialLinks:

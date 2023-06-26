@@ -31,6 +31,11 @@ class ResumeAppStack(Stack):
             self, "ResumeAssetBucket", removal_policy=RemovalPolicy.DESTROY
         )
 
+         # Basic infrastructure declaration.
+        resume_data_bucket = s3.Bucket(
+            self, "ResumeDataBucket", removal_policy=RemovalPolicy.DESTROY
+        )
+
         # error_page_bucket = s3.Bucket(
         #     self, "ResumeErrorPageBucket", removal_policy=RemovalPolicy.DESTROY
         # )
@@ -47,6 +52,10 @@ class ResumeAppStack(Stack):
             self, "ResumeApp-OAI", comment="ResumeApp OAI for the S3 Website"
         )
 
+        oai_data = cloudfront.OriginAccessIdentity(
+            self, "ResumeApp-Data-OAI", comment="ResumeApp OAI for the S3 Website (Data)"
+        )
+
         # oai_error = cloudfront.OriginAccessIdentity(
         #     self, "ResumeApp-OAIError", comment="ResumeApp OAI for the S3 Website (Errors)"
         # )
@@ -56,6 +65,13 @@ class ResumeAppStack(Stack):
             origin_access_identity=oai,
             origin_path=try_get_context(self, "deployment_path"),
         )
+
+        data_origin = origins.S3Origin(
+            resume_data_bucket,
+            origin_access_identity=oai_data,
+            origin_path="/",
+        )
+
         # maintenance_origin = origins.S3Origin(
         #     error_page_bucket, origin_access_identity=oai_error, origin_path="/"
         # )
@@ -66,6 +82,15 @@ class ResumeAppStack(Stack):
             viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
             response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
             cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
+            allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+        )
+
+        data_behavior = cloudfront.BehaviorOptions(
+            origin=data_origin,
+            origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+            viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+            response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            cache_policy=cloudfront.CachePolicy.CACHING_OPTIMIZED,
             allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
         )
 
@@ -94,6 +119,7 @@ class ResumeAppStack(Stack):
             domain_names=[target_domain_record],
             additional_behaviors={
                 "index.html": index_behavior,
+                "/resume/download/*": data_behavior,
                 # "/maintenance/*": maintenance_behavior,
             },
             # error_responses=[
