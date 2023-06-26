@@ -119,7 +119,7 @@ jobs:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
       - name: 'Deploy UI Assets'
         run: |
-          aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
+          aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/
           # aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
           # aws s3 sync . s3://$AWS_S3_ERROR_BUCKET/ --exclude '*' --include 'maintenance.html'
         env:
