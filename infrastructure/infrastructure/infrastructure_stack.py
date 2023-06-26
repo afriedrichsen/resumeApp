@@ -94,6 +94,15 @@ class ResumeAppStack(Stack):
             allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
         )
 
+        data_behavior_cache = cloudfront.BehaviorOptions(
+            origin=data_origin,
+            origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+            viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+            response_headers_policy=cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            cache_policy=cloudfront.CachePolicy.CACHING_OPTIMIZED,
+            allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+        )
+
         # maintenance_behavior = cloudfront.BehaviorOptions(
         #     origin=maintenance_origin,
         #     origin_request_policy=cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
@@ -120,7 +129,7 @@ class ResumeAppStack(Stack):
             additional_behaviors={
                 "index.html": index_behavior,
                 "/resume/download/*": data_behavior,
-                "/resources/images/*": data_behavior,
+                "/resources/images/*": data_behavior_cache,
                 # "/maintenance/*": maintenance_behavior,
             },
             # error_responses=[
