@@ -8,7 +8,7 @@ name: 'Nightly Build'
 
 jobs:
   server:
-    name: Deploy App - Backend
+    name: (Production) Deploy App - Backend
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,6 +19,9 @@ jobs:
     environment: production
     outputs:
       target_bucket: ${{ steps.deploy_info.outputs.target_bucket }}
+      # target_error_bucket: ${{ steps.deploy_info.outputs.target_error_bucket }}
+      build_date: ${{ steps.tag.outputs.date }}
+      build_tag: ${{ steps.tag.outputs.build_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -47,16 +50,19 @@ jobs:
         id: tag
         run: |
           current=$(date +'%Y%m%d')
-          echo date="$current" >> $GITHUB_OUTPUT
+          current_tag=${GITHUB_REF##*/}-$current-${GITHUB_SHA::6}.${GITHUB_RUN_NUMBER}
+          echo "date=$current" >> "$GITHUB_OUTPUT"
+          echo "build_tag=$current_tag" >> "$GITHUB_OUTPUT"
       - name: Deploy
         id: deploy
         run: |
           source $(poetry env info --path)/bin/activate
-          cdk deploy 'prod-us1' --require-approval never --outputs-file ./cdk-outputs.json
+          cdk deploy 'prod-us1' --context deployment_path=`echo $DEPLOY_PATH` --require-approval never --outputs-file ./cdk-outputs.json
           cat cdk-outputs.json
-          # cdk destroy 'prod-us1' --require-approval never
         working-directory: infrastructure
         env:
+          # DEPLOY_PATH: ${{ steps.tag.outputs.build_tag }}
+          DEPLOY_PATH: '/'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
@@ -69,9 +75,12 @@ jobs:
       - name: Show output
         id: deploy_info
         run: |
-          data=${{ env.deploy_prod-us1_DeployBucket }}
+          data=${{ env.deploy_dev_DeployBucket }}
+          # data_error=${{ env.deploy_dev_DeployErrorBucket }}
           echo "The bucket name was $data"
+          # echo "The error bucket name was $data"
           echo "target_bucket=$data" >> "$GITHUB_OUTPUT"
+          # echo "target_error_bucket=$data_error" >> "$GITHUB_OUTPUT"
   frontend:
     name: Deploy App - Frontend
     needs: server
@@ -108,6 +117,10 @@ jobs:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
       - name: 'Deploy UI Assets'
         run: |
-          aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET
+          aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/
+          # aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
+          # aws s3 sync . s3://$AWS_S3_ERROR_BUCKET/ --exclude '*' --include 'maintenance.html'
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
+          # AWS_S3_ERROR_BUCKET: '${{needs.server.outputs.target_error_bucket}}'
+          BUILD_LOCATION: '${{needs.server.outputs.build_tag}}'
