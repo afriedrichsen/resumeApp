@@ -57,7 +57,7 @@ jobs:
         id: deploy
         run: |
           source $(poetry env info --path)/bin/activate
-          cdk deploy 'prod-us1' --context deployment_path=`echo $DEPLOY_PATH` --require-approval never --outputs-file ./cdk-outputs.json
+          cdk deploy 'prod-us1' --context host='alex' --context deployment_path=`echo $DEPLOY_PATH` --require-approval never --outputs-file ./cdk-outputs.json
           cat cdk-outputs.json
         working-directory: infrastructure
         env:
