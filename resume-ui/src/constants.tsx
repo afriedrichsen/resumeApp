@@ -1,1 +1,0 @@
-export const DEFAULT_CODE = 'default_code'
