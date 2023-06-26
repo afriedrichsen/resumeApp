@@ -1,68 +1,44 @@
 # Resume - Full-Stack Application
 
 [![Nightly Build](https://github.com/afriedrichsen/resumeApp/actions/workflows/actions.yml/badge.svg)](https://github.com/afriedrichsen/resumeApp/actions/workflows/actions.yml)
-[![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master)
+
+<!-- [![Coverage Status](https://coveralls.io/repos/github/afriedrichsen/resumeApp/badge.svg?branch=master)](https://coveralls.io/github/afriedrichsen/resumeApp?branch=master) -->
 
 ### Features
 
-- ES2017 Syntax for Express
 - TypeScript for type safety and cleaner JavaScript control.
-- Docker build
-- NoSQL support (DynamoDB or MongoDB)
-- API documentation generation with apidoc
-- Mocha, Chai and Sinon for unit and integration testing
 - TSLint as TypeScript linter
 - Prettier.js for opinionated code sytax
-- Cloud Deployment support (AWS and Azure).
+- Cloud Deployment support (AWS CDK).
 
 ### Prerequisites
 
-- Node.js (9.1+)
-- Go (1.6+)
-- Serverless Framework
-- Docker (if running as container)
+- Node.js (18+)
+- TypeScript e.g. `npm install -g typescript` or `npm ci` install project version
+- Go (1.9+)
+- Hugo e.g `npm install -g hugo`
 
 ### Installation
 
 #### Development
 
-1.) Set up MongoDB, either locally or remote.
+1. Clone the repository
 
-2.) Clone the repository
+2. Configure `resume-ui-simple/config.yaml` as you wish or use defaults:
 
-3.) Copy .env.example to .env. Edit as necessary.
-
-```
-cd resumeApp/app/api
-cp .env.example .env
-nano .env
-```
-
-4.) Run the application.
+3. Start Development Server:
 
 ```
-cd ../../ (Assuming you followed Step 2, otherwise, change to project root).
-npm run development
+hugo server -s resume-ui-simple
 ```
 
-#### Production (Docker Container)
+4. Confirm running at `http://localhost:1313/`
 
-Rather than run the application, instead change into the project root directory and build the Docker image locally.
+## Deployment
 
-```
-cd resumeApp
-docker build -t <your tag> .
-```
+### Production
 
-Alternatively, you can also run the project in Docker swarm for easy scaling.
-
-```
-docker-compose up
-
-OR
-
-docker stack deploy -c docker-compose.yml <stack name here>
-```
+Existing GitHub Action workflow (`.workflows/actions.yml`). Requires PR.
 
 ## Authors
 
