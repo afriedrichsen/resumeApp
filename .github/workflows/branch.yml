@@ -63,7 +63,8 @@ jobs:
           # cdk destroy 'dev' --require-approval never
         working-directory: infrastructure
         env:
-          DEPLOY_PATH: ${{ steps.tag.outputs.build_tag }}
+          # DEPLOY_PATH: ${{ steps.tag.outputs.build_tag }}
+          DEPLOY_PATH: '/'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
@@ -111,14 +112,15 @@ jobs:
       - name: 'Check UI Assets'
         run: |
           ls ./resume-ui-simple/public
-      # - name: 'Remove Previous UI Assets'
-      #   run: |
-      #     aws s3 rm s3://$AWS_S3_BUCKET --recursive
-      #   env:
-      #     AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
+      - name: 'Remove Previous UI Assets'
+        run: |
+          aws s3 rm s3://$AWS_S3_BUCKET --recursive
+        env:
+          AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
       - name: 'Deploy UI Assets'
         run: |
           aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
+          # aws s3 sync ./resume-ui-simple/public s3://$AWS_S3_BUCKET/$BUILD_LOCATION/
           # aws s3 sync . s3://$AWS_S3_ERROR_BUCKET/ --exclude '*' --include 'maintenance.html'
         env:
           AWS_S3_BUCKET: '${{needs.server.outputs.target_bucket}}'
