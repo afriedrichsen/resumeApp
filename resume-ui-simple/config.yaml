@@ -147,7 +147,8 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "https://gravatar.com/avatar/3ec5c82484d815ae1ec1e7bee21e3492.jpg?s=200"
+    # image: "https://gravatar.com/avatar/3ec5c82484d815ae1ec1e7bee21e3492.jpg?s=200"
+    image: "https://alex.friedrichsen.me/resources/images/friedrichsen_about_me.jpeg"
     content: |-
       I am a cloud architect and engineer with a passion for tackling complex scale and resiliency problems in the cloud. I have a background in computer science and economics, and I have a strong interest in the intersection of technology and the human experience. I am currently working as a cloud architect in Minneapolis, MN focused on cloud modernization. 
     skills:

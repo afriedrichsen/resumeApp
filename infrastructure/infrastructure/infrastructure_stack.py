@@ -120,6 +120,7 @@ class ResumeAppStack(Stack):
             additional_behaviors={
                 "index.html": index_behavior,
                 "/resume/download/*": data_behavior,
+                "/resources/images/*": data_behavior,
                 # "/maintenance/*": maintenance_behavior,
             },
             # error_responses=[
