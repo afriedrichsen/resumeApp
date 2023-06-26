@@ -75,8 +75,8 @@ jobs:
       - name: Show output
         id: deploy_info
         run: |
-          data=${{ env.deploy_dev_DeployBucket }}
-          # data_error=${{ env.deploy_dev_DeployErrorBucket }}
+          data=${{ env.deploy_prod-us1_DeployBucket }}
+          # data_error=${{ env.deploy_prod-us1_DeployErrorBucket }}
           echo "The bucket name was $data"
           # echo "The error bucket name was $data"
           echo "target_bucket=$data" >> "$GITHUB_OUTPUT"
