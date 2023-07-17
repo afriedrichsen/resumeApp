@@ -121,7 +121,7 @@ params:
     title: "Alex Friedrichsen."
     subtitle: "I help you reach for the Cloud"
     content: "A passionate cloud expert."
-    image: https://gravatar.com/avatar/3ec5c82484d815ae1ec1e7bee21e3492.jpg?s=400
+    # image: https://gravatar.com/avatar/3ec5c82484d815ae1ec1e7bee21e3492.jpg?s=400
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
