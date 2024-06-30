@@ -168,14 +168,32 @@ params:
     # title: "Custom Name"
     items:
       - job: "Cloud Architect"
+        company: "nference"
+        companyUrl: "https://nference.ai"
+        date: "Oct 2023 - present"
+        info:
+          enable: true
+          content: "Current Role"
+        featuredLink:
+          enable: false
+          name: "View the project"
+          url: "https://nference.ai"
+        content: "Currently helping architect the cloud to make biomedical knowledge more computable."
+      - job: "Cloud Architect"
         company: "Calabrio"
         companyUrl: "https://calabrio.com"
-        date: "Oct 2019 - present"
+        date: "Oct 2019 - Oct 2023"
+        info:
+          enable: true
         featuredLink:
           enable: false
           name: "View the project"
           url: "https://calabrio.com"
-        content: "I am currently working as a cloud architect in Minneapolis, MN. I am currently focused on cloud modernization and projects related to helping companies grow or modernize their SaaS offerings."
+        content: |
+          I worked as a cloud architect. I collaborated on and led cloud modernization efforts and helped navigate the complexites of SaaS at scale.
+          - Java Engineering subject matter expert
+          - AWS Architecture subject matter expert
+          - DevOps and SRE subject matter expert
       # - job: "Principal Software Engineer"
       #   company: "Calabrio"
       #   companyUrl: "https://calabrio.com"
@@ -196,12 +214,10 @@ params:
           name: "SmashRoutes"
           url: "https://smashroutes.com"
         info:
-          enable: true
+          enable: false
           content: I worked as a software developer for more than one year at CogReps.
         content: |
-          I worked as a software developer at [smashroutes.com](https://smashroutes.com) in Minneapolis, MN.
-          - Lead backend developer for a e-learning platform.
-          - Lead frontend engineer and design engineer for e-learning platform.
+          - Lead fullstack engineer for an innvoative learning platform in Minneapolis, MN.
           - AWS Architecture and SRE subject matter expert
       
       
@@ -211,13 +227,12 @@ params:
         date: "July 2013 - Aug 2018"
         info:
           enable: false
+          content: Officer
         featuredLink:
           enable: false
           url: "https://www.usbank.com"
         content: |
-          I am worked as a software developer at [usbank.com.](https://usbank.com) in Minneapolis, MN. My focus was engineering and administering several Identity and Acess Management platforms.
-          - Mid Level Developer for core internal employee identity management platform
-          - Lead developer for a Windows privileged access management product.
+          I got my start engineering in the InfoSec space. My focus was engineering and administering several Identity and Acess Management platforms.
 
   # Education
   education:
@@ -312,8 +327,8 @@ params:
       github: https://github.com/afriedrichsen
       linkedin: https://linkedin.com/in/afriedrichsen
       # twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
+      # instagram: https://instagram.com
+      # facebook: https://facebook.com
 
   # List pages like blogs and posts
   listPages:
