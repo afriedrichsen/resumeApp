@@ -71,8 +71,9 @@ jobs:
         env:
           # DEPLOY_PATH: ${{ steps.tag.outputs.build_tag }}
           DEPLOY_PATH: '/'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ env.AWS_SESSION_TOKEN }}
           AWS_DEFAULT_REGION: 'us-east-1'
       - name: JSON to variables
         uses: rgarcia-phi/json-to-variables@v1.1.0
