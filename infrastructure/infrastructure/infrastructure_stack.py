@@ -19,19 +19,20 @@ class ResumeAppStack(Stack):
         target_domain = try_get_context(self, "domain")
         target_domain_record = f"{target_host}.{target_domain}"
 
-        domain = route53.HostedZone.from_hosted_zone_attributes(
-            self,
-            "HostedZone",
-            hosted_zone_id=target_zone,
-            zone_name=f"{target_domain}",
-        )
+        # TODO: Add feature flag to make optional for dev testing.
+        # domain = route53.HostedZone.from_hosted_zone_attributes(
+        #     self,
+        #     "HostedZone",
+        #     hosted_zone_id=target_zone,
+        #     zone_name=f"{target_domain}",
+        # )
 
         # Basic infrastructure declaration.
         bucket = s3.Bucket(
             self, "ResumeAssetBucket", removal_policy=RemovalPolicy.DESTROY
         )
 
-         # Basic infrastructure declaration.
+        # Basic infrastructure declaration.
         resume_data_bucket = s3.Bucket(
             self, "ResumeDataBucket", removal_policy=RemovalPolicy.DESTROY
         )
@@ -53,7 +54,9 @@ class ResumeAppStack(Stack):
         )
 
         oai_data = cloudfront.OriginAccessIdentity(
-            self, "ResumeApp-Data-OAI", comment="ResumeApp OAI for the S3 Website (Data)"
+            self,
+            "ResumeApp-Data-OAI",
+            comment="ResumeApp OAI for the S3 Website (Data)",
         )
 
         # oai_error = cloudfront.OriginAccessIdentity(
@@ -152,16 +155,16 @@ class ResumeAppStack(Stack):
         )
 
         # DNS
-        a_record = route53.ARecord(
-            self,
-            "ResumeDomainRecord",
-            zone=domain,
-            delete_existing=True,
-            record_name=f"{target_host}",
-            target=route53.RecordTarget.from_alias(
-                route53_targets.CloudFrontTarget(distribution=distribution)
-            ),
-        )
+        # a_record = route53.ARecord(
+        #     self,
+        #     "ResumeDomainRecord",
+        #     zone=domain,
+        #     delete_existing=True,
+        #     record_name=f"{target_host}",
+        #     target=route53.RecordTarget.from_alias(
+        #         route53_targets.CloudFrontTarget(distribution=distribution)
+        #     ),
+        # )
 
         # Outputs.
         CfnOutput(self, "DeployBucket", value=bucket.bucket_name)
