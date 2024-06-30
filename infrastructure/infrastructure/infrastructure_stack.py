@@ -19,13 +19,12 @@ class ResumeAppStack(Stack):
         target_domain = try_get_context(self, "domain")
         target_domain_record = f"{target_host}.{target_domain}"
 
-        # TODO: Add feature flag to make optional for dev testing.
-        # domain = route53.HostedZone.from_hosted_zone_attributes(
-        #     self,
-        #     "HostedZone",
-        #     hosted_zone_id=target_zone,
-        #     zone_name=f"{target_domain}",
-        # )
+        domain = route53.HostedZone.from_hosted_zone_attributes(
+            self,
+            "HostedZone",
+            hosted_zone_id=target_zone,
+            zone_name=f"{target_domain}",
+        )
 
         # Basic infrastructure declaration.
         bucket = s3.Bucket(
