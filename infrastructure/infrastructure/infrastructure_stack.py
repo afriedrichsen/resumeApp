@@ -19,12 +19,12 @@ class ResumeAppStack(Stack):
         target_domain = try_get_context(self, "domain")
         target_domain_record = f"{target_host}.{target_domain}"
 
-        # domain = route53.HostedZone.from_hosted_zone_attributes(
-        #     self,
-        #     "HostedZone",
-        #     hosted_zone_id=target_zone,
-        #     zone_name=f"{target_domain}",
-        # )
+        domain = route53.HostedZone.from_hosted_zone_attributes(
+            self,
+            "HostedZone",
+            hosted_zone_id=target_zone,
+            zone_name=f"{target_domain}",
+        )
 
         # Basic infrastructure declaration.
         bucket = s3.Bucket(
@@ -40,13 +40,13 @@ class ResumeAppStack(Stack):
         #     self, "ResumeErrorPageBucket", removal_policy=RemovalPolicy.DESTROY
         # )
 
-        # certificate = acm.Certificate(
-        #     self,
-        #     "Certificate",
-        #     domain_name=target_domain_record,
-        #     certificate_name="Resume App Service",  # Optionally provide an certificate name
-        #     validation=acm.CertificateValidation.from_dns(domain),
-        # )
+        certificate = acm.Certificate(
+            self,
+            "Certificate",
+            domain_name=target_domain_record,
+            certificate_name="Resume App Service",  # Optionally provide an certificate name
+            validation=acm.CertificateValidation.from_dns(domain),
+        )
 
         oai = cloudfront.OriginAccessIdentity(
             self, "ResumeApp-OAI", comment="ResumeApp OAI for the S3 Website"
@@ -135,7 +135,7 @@ class ResumeAppStack(Stack):
                 cache_policy=cloudfront.CachePolicy.CACHING_OPTIMIZED,
                 allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
             ),
-            # certificate=certificate,
+            certificate=certificate,
             domain_names=[target_domain_record],
             additional_behaviors={
                 "index.html": index_behavior,
